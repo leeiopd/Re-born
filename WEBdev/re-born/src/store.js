@@ -5,15 +5,14 @@ import "material-design-icons-iconfont/dist/material-design-icons.css"; // Ensur
 import "@fortawesome/fontawesome-free/css/all.css"; // Ensure you are using css-loader
 
 Vue.use(Vuetify);
-
 Vue.use(Vuex);
+// Vue.use(VueApexCharts);
 
 export default new Vuex.Store({
   state: {},
   mutations: {},
   actions: {},
   icons: {
-    iconfont: "md",
-    iconfont: "fa"
+    iconfont: "md, fa"
   }
 });
