@@ -31,7 +31,7 @@
       <!-- <div style="width: 100%; height: 100%;"> -->
       <v-btn
         v-for="item in items"
-        :key="item.title"
+        :key="item.icon"
         style="width: 100%; "
         @click="actFunc(item.path)"
       >
@@ -60,7 +60,7 @@ export default {
     items: [
       { icon: "home", path: "/" },
       { icon: "fas fa-search", path: "/localSelect" },
-      { icon: "info", path: "/moreInfo" }
+      { icon: "info", path: "/info" }
     ]
   }),
   methods: {
