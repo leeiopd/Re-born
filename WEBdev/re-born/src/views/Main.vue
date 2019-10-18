@@ -6,8 +6,8 @@
       </v-card>
     </v-col>
     <v-col cols="6" style="height: 100%;">
-      <v-card class="pa-2" outlined tile style="hegiht: 100%;">
-        <Warning></Warning>
+      <v-card class="pa-2" outlined tile style="height: 100%;">
+        <Chart></Chart>
       </v-card>
     </v-col>
   </v-row>
@@ -15,11 +15,11 @@
 
 <script>
 import Status from "../components/mainPage/Status.vue";
-import Warning from "../components/mainPage/Warning.vue";
+import Chart from "../components/mainPage/Chart.vue";
 export default {
   components: {
     Status,
-    Warning
+    Chart
   }
 };
 </script>
