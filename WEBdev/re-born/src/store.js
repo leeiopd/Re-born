@@ -7,7 +7,6 @@ import "@fortawesome/fontawesome-free/css/all.css"; // Ensure you are using css-
 Vue.use(Vuetify);
 Vue.use(Vuex);
 // Vue.use(VueApexCharts);
-
 export default new Vuex.Store({
   state: {},
   mutations: {},

@@ -3,7 +3,7 @@ import Router from "vue-router";
 import Main from "./views/Main.vue";
 import LocalSelect from "./views/LocalSelect.vue";
 import Local from "./views/Local.vue";
-import MoreInfo from "./views/MoreInfo.vue";
+import Info from "./views/Info.vue";
 Vue.use(Router);
 
 export default new Router({
@@ -26,9 +26,9 @@ export default new Router({
       component: Local
     },
     {
-      path: "/moreInfo",
-      name: "moreInfo",
-      component: MoreInfo
+      path: "/info",
+      name: "info",
+      component: Info
     }
   ]
 });
