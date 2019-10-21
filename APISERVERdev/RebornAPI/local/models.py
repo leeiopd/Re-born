@@ -1,17 +1,36 @@
 from django.db import models
 
 # Create your models here.
-class City(models.Model):
+class LocalLevel1(models.Model): # 시, 도
     name = models.CharField(max_length=30)
-    gun = models.ForeignKey('Gun', on_delete=models.CASCADE)
+    trashMixed = models.IntegerField()
+    trashRecycled = models.IntegerField()
 
-class Gun(models.Model):
-    name = models.CharField(max_length=50)
-    gu = models.ForeignKey('Gu', on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
 
-class Gu(models.Model):
+class LocalLevel2(models.Model): # 구
     name = models.CharField(max_length=50)
-    dong = models.ForeignKey('Dong', on_delete=models.CASCADE)
+    locallevel1 = models.ForeignKey(LocalLevel1, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.name
 
-class Dong(models.Model):
+class LocalLevel3(models.Model): # 동읍면리
     name = models.CharField(max_length=50)
+    locallevel2 = models.ForeignKey(LocalLevel2, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.name
+
+class Place(models.Model): # 설치된 지점 ex) 삼성연수원점
+    name = models.CharField(max_length=50)
+    locallevel3 = models.ForeignKey(LocalLevel3, on_delete=models.CASCADE)
+    trashCount = models.IntegerField()
+    mix = models.IntegerField()
+    paper = models.IntegerField()
+    plastic = models.IntegerField()
+    can = models.IntegerField()
+
+    def __str__(self):
+        return self.name

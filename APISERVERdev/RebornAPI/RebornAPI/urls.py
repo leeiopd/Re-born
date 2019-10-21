@@ -25,7 +25,10 @@ import local.api
 app_name = 'local'
 
 router = routers.DefaultRouter()
-router.register('locals', local.api.CityViewSet)
+router.register('local1', local.api.LocalLevel1ViewSet)
+router.register('local2', local.api.LocalLevel2ViewSet)
+router.register('local3', local.api.LocalLevel3ViewSet)
+router.register('place', local.api.PlaceViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
