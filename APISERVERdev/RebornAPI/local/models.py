@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class LocalLevel1(models.Model): # 시, 도
+class SpecialSi(models.Model): # 특별시, 광역시
     name = models.CharField(max_length=30)
     trashMixed = models.IntegerField()
     trashRecycled = models.IntegerField()
@@ -9,23 +9,39 @@ class LocalLevel1(models.Model): # 시, 도
     def __str__(self):
         return self.name
 
-class LocalLevel2(models.Model): # 구
+class Do(models.Model): # 도
+    name = models.CharField(max_length=30)
+    trashMixed = models.IntegerField()
+    trashRecycled = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+class Si(models.Model): # 시
     name = models.CharField(max_length=50)
-    locallevel1 = models.ForeignKey(LocalLevel1, on_delete=models.CASCADE)
+    do = models.ForeignKey(Do, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.name
 
-class LocalLevel3(models.Model): # 동읍면리
+class Gu(models.Model): # 구
     name = models.CharField(max_length=50)
-    locallevel2 = models.ForeignKey(LocalLevel2, on_delete=models.CASCADE)
+    si = models.ForeignKey(Si, on_delete=models.CASCADE, blank = True, null = True)
+    specialsi = models.ForeignKey(SpecialSi, on_delete=models.CASCADE, blank = True, null = True)
+
+    def __str__(self):
+        return self.name
+
+class Dong(models.Model): # 동읍면리
+    name = models.CharField(max_length=50)
+    gu = models.ForeignKey(Gu, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.name
 
 class Place(models.Model): # 설치된 지점 ex) 삼성연수원점
     name = models.CharField(max_length=50)
-    locallevel3 = models.ForeignKey(LocalLevel3, on_delete=models.CASCADE)
+    dong = models.ForeignKey(Dong, on_delete=models.CASCADE)
     trashCount = models.IntegerField()
     mix = models.IntegerField()
     paper = models.IntegerField()

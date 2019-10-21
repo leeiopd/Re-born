@@ -25,9 +25,11 @@ import local.api
 app_name = 'local'
 
 router = routers.DefaultRouter()
-router.register('local1', local.api.LocalLevel1ViewSet)
-router.register('local2', local.api.LocalLevel2ViewSet)
-router.register('local3', local.api.LocalLevel3ViewSet)
+router.register('special', local.api.SpecialSiViewSet)
+router.register('do', local.api.DoViewSet)
+router.register('si', local.api.SiViewSet)
+router.register('gu', local.api.GuViewSet)
+router.register('dong', local.api.DongViewSet)
 router.register('place', local.api.PlaceViewSet)
 
 urlpatterns = [
