@@ -8,16 +8,45 @@
       <v-flex class="subpick1">
         <div id="location">현위치 : </div>
       </v-flex>
-      <v-flex class="subpick2">
-      <p>여기는 세부 지역을 고를겁니다</p>
+      <v-flex class="subpick2" wrap height=100%>
       <div>
-      <span @click="aa()">원상태로 </span><br>
-      <span @click="ab()">연수원 </span>
-      <span @click="aba()">한밭대 </span>
-      <span @click="ac()">멀캠 </span><br>
-      <span @click="ad()">섭지코지 </span> 
-      <span @click="ae()">동백섬 </span> 
-    </div>
+        <v-btn id="btn1" @click="ab()" width="33%">서울</v-btn>
+        <v-btn id="btn2" @click="aba()" width="33%">부산</v-btn>
+        <v-btn id="btn3" width="33%">대구</v-btn><br>
+        <v-btn id="btn4" @click="Yuseong" width="33%">인천</v-btn>
+        <v-btn id="btn5" width="33%">광주</v-btn>
+        <v-btn id="btn6" @click="Daejeon" width="33%">대전</v-btn><br>
+        <v-btn id="btn7" width="33%">울산</v-btn>
+        <v-btn id="btn8" width="33%">세종</v-btn>
+        <v-btn id="btn9" width="33%">경기</v-btn><br>
+        <v-btn id="btn10" width="33%">강원</v-btn>
+        <v-btn id="btn11" @click="Deokmyeong" width="33%">충북</v-btn>
+        <v-btn id="btn12" width="33%">충남</v-btn><br>
+        <v-btn id="btn13" width="33%">전북</v-btn>
+        <v-btn id="btn14" width="33%">전남</v-btn>
+        <v-btn id="btn15" width="33%">경북</v-btn><br>
+        <v-btn id="btn16" width="33%">경남</v-btn>
+        <v-btn id="btn17" width="33%">제주</v-btn>
+        <v-btn width="33%"></v-btn><br>
+        <v-btn width="33%"></v-btn>
+        <v-btn width="33%"></v-btn>
+        <v-btn width="33%"></v-btn><br>
+        <v-btn width="33%"></v-btn>
+        <v-btn width="33%"></v-btn>
+        <v-btn width="33%"></v-btn><br>
+        <v-btn width="33%"></v-btn>
+        <v-btn width="33%"></v-btn>
+        <v-btn width="33%" @click="aa"></v-btn>
+      </div>
+<!-- 
+      <div>
+        <span @click="aa()">원상태로 </span><br>
+        <span @click="ab()">연수원 </span>
+        <span @click="aba()">한밭대 </span>
+        <span @click="ac()">멀캠 </span><br>
+        <span @click="ad()">섭지코지 </span> 
+        <span @click="ae()">동백섬 </span> 
+      </div> -->
     </v-flex>
       
     </v-flex>
@@ -102,14 +131,14 @@ export default {
     },
     ab() { //삼성화재 유성연수원
       document.getElementById('location').innerText = '현위치 : 대전시 유성구 덕명동 삼성화재연수원'
-      this.map.setLevel(5)
+      this.map.setLevel(4)
       this.moveLatLon = new kakao.maps.LatLng(36.355099, 127.298362);
       
       this.map.panTo(this.moveLatLon); 
     },
     aba() { //한밭대학교
       document.getElementById('location').innerText = '현위치 : 대전시 유성구 덕명동 한밭대학교'
-      this.map.setLevel(5)
+      this.map.setLevel(4)
       this.moveLatLon = new kakao.maps.LatLng(36.350832, 127.301166);
       
       this.map.panTo(this.moveLatLon); 
@@ -133,6 +162,63 @@ export default {
       this.map.setLevel(5)
       this.moveLatLon = new kakao.maps.LatLng(35.155223, 129.152037);
       
+      this.map.panTo(this.moveLatLon); 
+    },
+    Daejeon() {
+      document.getElementById('location').innerText = '현위치 : 대전시'
+      document.getElementById('btn1').innerText = '동구'
+      document.getElementById('btn2').innerText = '중구'
+      document.getElementById('btn3').innerText = '서구'
+      document.getElementById('btn4').innerText = '유성구'
+      document.getElementById('btn5').innerText = '대덕구'
+      document.getElementById('btn6').innerText = ''
+      document.getElementById('btn7').innerText = ''
+      document.getElementById('btn8').innerText = ''
+      document.getElementById('btn9').innerText = ''
+      document.getElementById('btn10').innerText = ''
+      document.getElementById('btn11').innerText = ''
+      document.getElementById('btn12').innerText = ''
+      document.getElementById('btn13').innerText = ''
+      document.getElementById('btn14').innerText = ''
+      document.getElementById('btn15').innerText = ''
+      document.getElementById('btn16').innerText = ''
+      document.getElementById('btn17').innerText = ''
+      this.map.setLevel(9)
+      this.moveLatLon = new kakao.maps.LatLng(36.33333333, 127.4166667);
+      this.map.panTo(this.moveLatLon); 
+    },
+    Yuseong() {
+      document.getElementById('location').innerText = '현위치 : 대전시 유성구'
+      document.getElementById('btn1').innerText = '진잠동'
+      document.getElementById('btn2').innerText = '온천1동'
+      document.getElementById('btn3').innerText = '온천2동'
+      document.getElementById('btn4').innerText = '노은1동'
+      document.getElementById('btn5').innerText = '노은2동'
+      document.getElementById('btn6').innerText = '신성동'
+      document.getElementById('btn7').innerText = '전민동'
+      document.getElementById('btn8').innerText = '구즉동'
+      document.getElementById('btn9').innerText = '관평동'
+      document.getElementById('btn10').innerText = '원신흥동'
+      document.getElementById('btn11').innerText = '덕명동'
+      this.map.setLevel(7)
+      this.moveLatLon = new kakao.maps.LatLng(36.36694444, 127.3269444);
+      this.map.panTo(this.moveLatLon); 
+    },
+    Deokmyeong() {
+      document.getElementById('location').innerText = '현위치 : 대전시 유성구 덕명동'
+      document.getElementById('btn1').innerText = '연수원'
+      document.getElementById('btn2').innerText = '한밭대'
+      document.getElementById('btn3').innerText = ''
+      document.getElementById('btn4').innerText = ''
+      document.getElementById('btn5').innerText = ''
+      document.getElementById('btn6').innerText = ''
+      document.getElementById('btn7').innerText = ''
+      document.getElementById('btn8').innerText = ''
+      document.getElementById('btn9').innerText = ''
+      document.getElementById('btn10').innerText = ''
+      document.getElementById('btn11').innerText = ''
+      this.map.setLevel(6)
+      this.moveLatLon = new kakao.maps.LatLng(36.353302, 127.299758);
       this.map.panTo(this.moveLatLon); 
     }
   }
