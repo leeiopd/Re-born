@@ -1,35 +1,55 @@
-from .models import LocalLevel1, LocalLevel2, LocalLevel3, Place
+from .models import SpecialSi, Do, Si, Gu, Dong, Place
 from rest_framework import serializers, viewsets
 
-class LocalLevel1Serializer(serializers.ModelSerializer):
+class SpecialSiSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = LocalLevel1
+        model = SpecialSi
         fields = '__all__'
 
-class LocalLevel1ViewSet(viewsets.ModelViewSet):
-    queryset = LocalLevel1.objects.all()
-    serializer_class = LocalLevel1Serializer
+class SpecialSiViewSet(viewsets.ModelViewSet):
+    queryset = SpecialSi.objects.all()
+    serializer_class = SpecialSiSerializer
 
-class LocalLevel2Serializer(serializers.ModelSerializer):
+class DoSerializer(serializers.ModelSerializer):
     
     class Meta:
-        model = LocalLevel2
+        model = Do
         fields = '__all__'
 
-class LocalLevel2ViewSet(viewsets.ModelViewSet):
-    queryset = LocalLevel2.objects.all()
-    serializer_class = LocalLevel2Serializer
+class DoViewSet(viewsets.ModelViewSet):
+    queryset = Do.objects.all()
+    serializer_class = DoSerializer
 
-class LocalLevel3Serializer(serializers.ModelSerializer):
+class SiSerializer(serializers.ModelSerializer):
     
     class Meta:
-        model = LocalLevel3
+        model = Si
         fields = '__all__'
 
-class LocalLevel3ViewSet(viewsets.ModelViewSet):
-    queryset = LocalLevel3.objects.all()
-    serializer_class = LocalLevel3Serializer
+class SiViewSet(viewsets.ModelViewSet):
+    queryset = Si.objects.all()
+    serializer_class = SiSerializer
+
+class GuSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Gu
+        fields = '__all__'
+
+class GuViewSet(viewsets.ModelViewSet):
+    queryset = Gu.objects.all()
+    serializer_class = GuSerializer
+
+class DongSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Dong
+        fields = '__all__'
+
+class DongViewSet(viewsets.ModelViewSet):
+    queryset = Dong.objects.all()
+    serializer_class = DongSerializer
 
 class PlaceSerializer(serializers.ModelSerializer):
     
