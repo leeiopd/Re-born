@@ -1,0 +1,262 @@
+LVL_2_CD,LVL_1_KR,LVL_1_EN,LVL_2_KR,LVL_2_EN
+11110,서울특별시,Seoul,종로구,Jongno District
+11140,서울특별시,Seoul,중구,Jung District
+11170,서울특별시,Seoul,용산구,Yongsan District
+11200,서울특별시,Seoul,성동구,Seongdong District
+11215,서울특별시,Seoul,광진구,Gwangjin District
+11230,서울특별시,Seoul,동대문구,Dongdaemun District
+11260,서울특별시,Seoul,중랑구,Jungnang District
+11290,서울특별시,Seoul,성북구,Seongbuk District
+11305,서울특별시,Seoul,강북구,Gangbuk District
+11320,서울특별시,Seoul,도봉구,Dobong District
+11350,서울특별시,Seoul,노원구,Nowon District
+11380,서울특별시,Seoul,은평구,Eunpyeong District
+11410,서울특별시,Seoul,서대문구,Seodaemun District
+11440,서울특별시,Seoul,마포구,Mapo District
+11470,서울특별시,Seoul,양천구,Yangcheon District
+11500,서울특별시,Seoul,강서구,Gangseo District
+11530,서울특별시,Seoul,구로구,Guro District
+11545,서울특별시,Seoul,금천구,Geumcheon District
+11560,서울특별시,Seoul,영등포구,Yeongdeungpo District
+11590,서울특별시,Seoul,동작구,Dongjak District
+11620,서울특별시,Seoul,관악구,Gwanak District
+11650,서울특별시,Seoul,서초구,Seocho District
+11680,서울특별시,Seoul,강남구,Gangnam District
+11710,서울특별시,Seoul,송파구,Songpa District
+11740,서울특별시,Seoul,강동구,Gangdong District
+26110,부산광역시,Busan,중구,Jung District
+26140,부산광역시,Busan,서구,Seo District
+26170,부산광역시,Busan,동구,Dong District
+26200,부산광역시,Busan,영도구,Yeongdo District
+26230,부산광역시,Busan,부산진구,Busanjin District
+26260,부산광역시,Busan,동래구,Dongnae District
+26290,부산광역시,Busan,남구,Nam District
+26320,부산광역시,Busan,북구,Buk District
+26350,부산광역시,Busan,해운대구,Haeundae District
+26380,부산광역시,Busan,사하구,Saha District
+26410,부산광역시,Busan,금정구,Geumjeong District
+26440,부산광역시,Busan,강서구,Gangseo District
+26470,부산광역시,Busan,연제구,Yeonje District
+26500,부산광역시,Busan,수영구,Suyeong District
+26530,부산광역시,Busan,사상구,Sasang District
+26710,부산광역시,Busan,기장군,Gijang County
+27110,대구광역시,Daegu,중구,Jung District
+27140,대구광역시,Daegu,동구,Dong District
+27170,대구광역시,Daegu,서구,Seo District
+27200,대구광역시,Daegu,남구,Nam District
+27230,대구광역시,Daegu,북구,Buk District
+27260,대구광역시,Daegu,수성구,Suseong District
+27290,대구광역시,Daegu,달서구,Dalseo District
+27710,대구광역시,Daegu,달성군,Dalseong County
+28110,인천광역시,Incheon,중구,Jung District
+28140,인천광역시,Incheon,동구,Dong District
+28170,인천광역시,Incheon,남구,Nam District
+28185,인천광역시,Incheon,연수구,Yeonsu District
+28200,인천광역시,Incheon,남동구,Namdong District
+28237,인천광역시,Incheon,부평구,Bupyeong District
+28245,인천광역시,Incheon,계양구,Gyeyang District
+28260,인천광역시,Incheon,서구,Seo District
+28710,인천광역시,Incheon,강화군,Ganghwa County
+28720,인천광역시,Incheon,옹진군,Ongjin County
+29110,광주광역시,Gwangju,동구,Dong District
+29140,광주광역시,Gwangju,서구,Seo District
+29155,광주광역시,Gwangju,남구,Nam District
+29170,광주광역시,Gwangju,북구,Buk District
+29200,광주광역시,Gwangju,광산구,Gwangsan District
+30110,대전광역시,Daejeon,동구,Dong District
+30140,대전광역시,Daejeon,중구,Jung District
+30170,대전광역시,Daejeon,서구,Seo District
+30200,대전광역시,Daejeon,유성구,Yuseong District
+30230,대전광역시,Daejeon,대덕구,Daedeok District
+31110,울산광역시,Ulsan,중구,Jung District
+31140,울산광역시,Ulsan,남구,Nam District
+31170,울산광역시,Ulsan,동구,Dong District
+31200,울산광역시,Ulsan,북구,Buk District
+31710,울산광역시,Ulsan,울주군,Ulju County
+36110,세종특별자치시,Sejong,,
+41110,경기도,Gyeonggi,수원시,Suwon
+41111,경기도,Gyeonggi,수원시 장안구,"Jangan District, Suwon"
+41113,경기도,Gyeonggi,수원시 권선구,"Gwonseon District, Suwon"
+41115,경기도,Gyeonggi,수원시 팔달구,"Paldal District, Suwon"
+41117,경기도,Gyeonggi,수원시 영통구,"Yeongtong Disrict, Suwon"
+41130,경기도,Gyeonggi,성남시,Seongnam
+41131,경기도,Gyeonggi,성남시 수정구,"Sujeong District, Seongnam"
+41133,경기도,Gyeonggi,성남시 중원구,"Jungwon District, Seongnam"
+41135,경기도,Gyeonggi,성남시 분당구,"Bundang District, Seongnam"
+41150,경기도,Gyeonggi,의정부시,Uijeongbu
+41170,경기도,Gyeonggi,안양시,Anyang
+41171,경기도,Gyeonggi,안양시 만안구,"Manan District, Anyang"
+41173,경기도,Gyeonggi,안양시 동안구,"Dongan District, Anyang"
+41190,경기도,Gyeonggi,부천시,Bucheon
+41210,경기도,Gyeonggi,광명시,Gwangmyeong
+41220,경기도,Gyeonggi,평택시,Pyeongtaek
+41250,경기도,Gyeonggi,동두천시,Dongducheon
+41270,경기도,Gyeonggi,안산시,Ansan
+41271,경기도,Gyeonggi,안산시 상록구,"Sangnok District, Ansan"
+41273,경기도,Gyeonggi,안산시 단원구,"Danwon District, Ansan"
+41280,경기도,Gyeonggi,고양시,Goyang
+41281,경기도,Gyeonggi,고양시 덕양구,"Deokyang District, Goyang"
+41285,경기도,Gyeonggi,고양시 일산동구,"Ilsandong District, Goyang"
+41287,경기도,Gyeonggi,고양시 일산서구,"Ilsanseo District, Goyang"
+41290,경기도,Gyeonggi,과천시,Gwacheon
+41310,경기도,Gyeonggi,구리시,Guri
+41360,경기도,Gyeonggi,남양주시,Namyangju
+41370,경기도,Gyeonggi,오산시,Osan
+41390,경기도,Gyeonggi,시흥시, Siheung
+41410,경기도,Gyeonggi,군포시,Gunpo
+41430,경기도,Gyeonggi,의왕시,Uiwang
+41450,경기도,Gyeonggi,하남시,Hanam
+41460,경기도,Gyeonggi,용인시,Yongin
+41461,경기도,Gyeonggi,용인시 처인구,"Cheoin District, Yongin"
+41463,경기도,Gyeonggi,용인시 기흥구,"Giheung District, Yongin"
+41465,경기도,Gyeonggi,용인시 수지구,"Suji District, Yongin"
+41480,경기도,Gyeonggi,파주시,Paju
+41500,경기도,Gyeonggi,이천시,Icheon
+41550,경기도,Gyeonggi,안성시,Anseong
+41570,경기도,Gyeonggi,김포시,Gimpo
+41590,경기도,Gyeonggi,화성시,Hwaseong
+41610,경기도,Gyeonggi,광주시,Gwangju
+41630,경기도,Gyeonggi,양주시,Yangju
+41650,경기도,Gyeonggi,포천시,Pocheon
+41670,경기도,Gyeonggi,여주시,Yeoju
+41800,경기도,Gyeonggi,연천군,Yeoncheon County
+41820,경기도,Gyeonggi,가평군,Gapyeong County
+41830,경기도,Gyeonggi,양평군,Yangpeyong County
+42110,강원도,Gangwon,춘천시,Chuncheon
+42130,강원도,Gangwon,원주시,Wonju
+42150,강원도,Gangwon,강릉시,Gangneung
+42170,강원도,Gangwon,동해시,Donghae
+42190,강원도,Gangwon,태백시,Taebaek
+42210,강원도,Gangwon,속초시,Sokcho
+42230,강원도,Gangwon,삼척시,Samcheok
+42720,강원도,Gangwon,홍천군,Hongcheon County
+42730,강원도,Gangwon,횡성군,HoENseong County
+42750,강원도,Gangwon,영월군,Yeongwol County
+42760,강원도,Gangwon,평창군,Pyeongchang County
+42770,강원도,Gangwon,정선군,Jeongseon County
+42780,강원도,Gangwon,철원군,Cheorwon County
+42790,강원도,Gangwon,화천군,Hwacheon County
+42800,강원도,Gangwon,양구군,Yanggu County
+42810,강원도,Gangwon,인제군,Inje County
+42820,강원도,Gangwon,고성군,Goseong County
+42830,강원도,Gangwon,양양군,Yangyang County
+43110,충청북도,North Chungcheong,청주시,Cheongju
+43111,충청북도,North Chungcheong,청주시 상당구,"Sangdang District, Cheongju"
+43112,충청북도,North Chungcheong,청주시 서원구,"Seowon District, Cheongju"
+43113,충청북도,North Chungcheong,청주시 흥덕구,"Heungdeok District, Cheongju"
+43114,충청북도,North Chungcheong,청주시 청원구,"Cheongwon District, Cheongju"
+43130,충청북도,North Chungcheong,충주시,Chungju
+43150,충청북도,North Chungcheong,제천시,Jecheon
+43720,충청북도,North Chungcheong,보은군,Boeun County
+43730,충청북도,North Chungcheong,옥천군,Okcheon County
+43740,충청북도,North Chungcheong,영동군,Yeongdong County
+43745,충청북도,North Chungcheong,증평군,Jeungpyeong County
+43750,충청북도,North Chungcheong,진천군,Jincheon County
+43760,충청북도,North Chungcheong,괴산군,Goesan County
+43770,충청북도,North Chungcheong,음성군,Eumseong County
+43800,충청북도,North Chungcheong,단양군,Danyang County
+44130,충청남도,South Chungcheong,천안시,Cheonan
+44131,충청남도,South Chungcheong,천안시 동남구,"Dongnam District, Cheonan"
+44133,충청남도,South Chungcheong,천안시 서북구,"Seobuk District, Cheonan"
+44150,충청남도,South Chungcheong,공주시,Gongju
+44180,충청남도,South Chungcheong,보령시,Boryeong
+44200,충청남도,South Chungcheong,아산시,Asan
+44210,충청남도,South Chungcheong,서산시,Seosan
+44230,충청남도,South Chungcheong,논산시,Nonsan
+44250,충청남도,South Chungcheong,계룡시,Gyeryong
+44270,충청남도,South Chungcheong,당진시,Dangjin
+44710,충청남도,South Chungcheong,금산군,Geumsan County
+44760,충청남도,South Chungcheong,부여군,Buyeo County
+44770,충청남도,South Chungcheong,서천군,Seocheon County
+44790,충청남도,South Chungcheong,청양군,Cheongyang County
+44800,충청남도,South Chungcheong,홍성군,Hongseong County
+44810,충청남도,South Chungcheong,예산군,Yesan County
+44825,충청남도,South Chungcheong,태안군,Taean County
+45110,전라북도,North Jeolla,전주시,Jeonju
+45111,전라북도,North Jeolla,전주시 완산구,"Wansan District, Jeonju"
+45113,전라북도,North Jeolla,전주시 덕진구,"Deokjin District, Jeonju"
+45130,전라북도,North Jeolla,군산시,Gunsan
+45140,전라북도,North Jeolla,익산시,Iksan
+45180,전라북도,North Jeolla,정읍시,Jeongeup
+45190,전라북도,North Jeolla,남원시,Namwon
+45210,전라북도,North Jeolla,김제시,Gimje
+45710,전라북도,North Jeolla,완주군,Wanju County
+45720,전라북도,North Jeolla,진안군,Jinan County
+45730,전라북도,North Jeolla,무주군,Muju County
+45740,전라북도,North Jeolla,장수군,Jangsu County
+45750,전라북도,North Jeolla,임실군,Imsil County
+45770,전라북도,North Jeolla,순창군,Sunchang County
+45790,전라북도,North Jeolla,고창군,Gochang County
+45800,전라북도,North Jeolla,부안군,Buan County
+46110,전라남도,South Jeolla,목포시,Mokpo
+46130,전라남도,South Jeolla,여수시,Yeosu
+46150,전라남도,South Jeolla,순천시,Suncheon
+46170,전라남도,South Jeolla,나주시,Naju
+46230,전라남도,South Jeolla,광양시,Gwangyang
+46710,전라남도,South Jeolla,담양군,Damyang County
+46720,전라남도,South Jeolla,곡성군,Gokseong County
+46730,전라남도,South Jeolla,구례군,Gurye County
+46770,전라남도,South Jeolla,고흥군,Goheung County
+46780,전라남도,South Jeolla,보성군,Boseong County
+46790,전라남도,South Jeolla,화순군,Hwasun County
+46800,전라남도,South Jeolla,장흥군,Jangheung County
+46810,전라남도,South Jeolla,강진군,Gangjin County
+46820,전라남도,South Jeolla,해남군,Haenam County
+46830,전라남도,South Jeolla,영암군,Yeongam County
+46840,전라남도,South Jeolla,무안군,Muan County
+46860,전라남도,South Jeolla,함평군,Hampyeong County
+46870,전라남도,South Jeolla,영광군,Yeonggwang County
+46880,전라남도,South Jeolla,장성군,Jangseong County
+46890,전라남도,South Jeolla,완도군,Wando County
+46900,전라남도,South Jeolla,진도군,Jindo County
+46910,전라남도,South Jeolla,신안군,Sinan County
+47110,경상북도,North Gyeongsang,포항시,Pohang
+47111,경상북도,North Gyeongsang,포항시 남구,"Nam District, Pohang"
+47113,경상북도,North Gyeongsang,포항시 북구,"Buk District, Pohang"
+47130,경상북도,North Gyeongsang,경주시,Gyeongju
+47150,경상북도,North Gyeongsang,김천시,Gimcheon
+47170,경상북도,North Gyeongsang,안동시,Andong
+47190,경상북도,North Gyeongsang,구미시,Gumi
+47210,경상북도,North Gyeongsang,영주시,Yeongju
+47230,경상북도,North Gyeongsang,영천시,Yeongcheon
+47250,경상북도,North Gyeongsang,상주시,Sangju
+47280,경상북도,North Gyeongsang,문경시,Mungyeong
+47290,경상북도,North Gyeongsang,경산시,Gyeongsan
+47720,경상북도,North Gyeongsang,군위군,Gunwi County
+47730,경상북도,North Gyeongsang,의성군,Uiseong County
+47750,경상북도,North Gyeongsang,청송군,Cheongsong County
+47760,경상북도,North Gyeongsang,영양군,Yeongyang County
+47770,경상북도,North Gyeongsang,영덕군,Yeongdeok County
+47820,경상북도,North Gyeongsang,청도군,Cheongdo County
+47830,경상북도,North Gyeongsang,고령군,Goryeong County
+47840,경상북도,North Gyeongsang,성주군,Seongju County
+47850,경상북도,North Gyeongsang,칠곡군,Chilgok County
+47900,경상북도,North Gyeongsang,예천군,Yecheon County
+47920,경상북도,North Gyeongsang,봉화군,Bonghwa County
+47930,경상북도,North Gyeongsang,울진군,Uljin County
+47940,경상북도,North Gyeongsang,울릉군,Ulleung County
+48120,경상남도,South Gyeongsang,창원시,Changwon
+48121,경상남도,South Gyeongsang,창원시 의창구,"Uichang District, Changwon"
+48123,경상남도,South Gyeongsang,창원시 성산구,"Seongsan District, Changwon"
+48125,경상남도,South Gyeongsang,창원시 마산합포구,"Masanhappo District, Changwon"
+48127,경상남도,South Gyeongsang,창원시 마산회원구,"Masanhoewon District, Changwon"
+48129,경상남도,South Gyeongsang,창원시 진해구,"Jinhae District, Changwon"
+48170,경상남도,South Gyeongsang,진주시,Jinju
+48220,경상남도,South Gyeongsang,통영시,Tongyeong
+48240,경상남도,South Gyeongsang,사천시,Sacheon
+48250,경상남도,South Gyeongsang,김해시,Gimhae
+48270,경상남도,South Gyeongsang,밀양시,Miryang
+48310,경상남도,South Gyeongsang,거제시,Geoje
+48330,경상남도,South Gyeongsang,양산시,Yangsan
+48720,경상남도,South Gyeongsang,의령군,Uiryeong County
+48730,경상남도,South Gyeongsang,함안군,Haman County
+48740,경상남도,South Gyeongsang,창녕군,Changnyeong County
+48820,경상남도,South Gyeongsang,고성군,Goseong County
+48840,경상남도,South Gyeongsang,남해군,Namhae County
+48850,경상남도,South Gyeongsang,하동군,Hadong County
+48860,경상남도,South Gyeongsang,산청군,Sancheong County
+48870,경상남도,South Gyeongsang,함양군,Hamyang County
+48880,경상남도,South Gyeongsang,거창군,Cheochang County
+48890,경상남도,South Gyeongsang,합천군,Hapcheon County
+50110,제주특별자치도,Jeju,제주시,Jeju
+50130,제주특별자치도,Jeju,서귀포시,Seogwipo
