@@ -47,6 +47,10 @@ class Place(models.Model): # 설치된 지점 ex) 삼성연수원점
     paper = models.IntegerField()
     plastic = models.IntegerField()
     can = models.IntegerField()
+    isFullPaper = models.BooleanField(default=False)
+    isFullCan = models.BooleanField(default=False)
+    isFullPlastic = models.BooleanField(default=False)
+    isFullMix = models.BooleanField(default=False)    
 
     def __str__(self):
         return self.name
