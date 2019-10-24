@@ -19,21 +19,22 @@ from rest_framework_swagger.views import get_swagger_view
 
 from django.contrib import admin
 from django.urls import path
+# from . import views
 
 import local.api
 
 app_name = 'local'
 
 router = routers.DefaultRouter()
-router.register('special', local.api.SpecialSiViewSet)
-router.register('do', local.api.DoViewSet)
-router.register('si', local.api.SiViewSet)
-router.register('gu', local.api.GuViewSet)
-router.register('dong', local.api.DongViewSet)
+router.register('level1', local.api.Level1ViewSet)
+router.register('level2', local.api.Level2ViewSet)
+router.register('level3', local.api.Level3ViewSet)
 router.register('place', local.api.PlaceViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/doc/', get_swagger_view(title='Rest API Document')),
     path('api/', include((router.urls, 'local'), namespace='api')),
+    path('api/', include('local.urls')),
+    # path('Si/', views.siList, name='si'),
 ]
