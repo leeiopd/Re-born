@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 import "./registerServiceWorker";
 import vuetify from "./plugins/vuetify";
+import { Verify } from "crypto";
 
 Vue.config.productionTip = false;
 

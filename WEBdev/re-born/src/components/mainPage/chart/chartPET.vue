@@ -6,13 +6,15 @@
 
 <script>
 import VueApexCharts from "vue-apexcharts";
+import axios from "axios";
 export default {
   components: {
     apexchart: VueApexCharts
   },
   data() {
     return {
-      series: [25],
+      id: 1,
+      series: [0],
       chartOptions: {
         colors: ["#6BCFFA"],
         fill: {
@@ -28,6 +30,26 @@ export default {
         labels: ["PET"]
       }
     };
+  },
+  mounted() {
+    this.checkPET();
+  },
+  methods: {
+    checkPET: function() {
+      const baseURL = "http://localhost:8080";
+      const id = this.id;
+      axios
+        .get(`${baseURL}/api/place/${id}/`)
+        .then(result => {
+          const var1 = result.data.plastic;
+          const var2 = result.data.trashCount;
+          const a = (var1 / var2) * 100;
+          this.series = [a];
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
   }
 };
 </script>
