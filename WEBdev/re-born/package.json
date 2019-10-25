@@ -13,10 +13,14 @@
     "core-js": "^2.6.5",
     "d3-zoom": "^1.8.3",
     "jquery": "^3.4.1",
+    "perfect-scrollbar": "^1.4.0",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.10",
     "vue-apexcharts": "^1.5.0",
+    "vue-perfect-scrollbar": "^0.2.0",
     "vue-router": "^3.0.3",
+    "vue2-perfect-scrollbar": "^1.2.1",
+    "vuebar": "0.0.20",
     "vuetify": "^2.1.0",
     "vuex": "^3.0.1"
   },
@@ -33,6 +37,7 @@
     "sass": "^1.17.4",
     "sass-loader": "^7.1.0",
     "vue-cli-plugin-vuetify": "^1.0.1",
+    "vue-overflow-scroll": "^1.1.4",
     "vue-template-compiler": "^2.6.10",
     "vuetify-loader": "^1.2.2"
   },
