@@ -43,7 +43,7 @@ export default {
         .then(result => {
           const var1 = result.data.mix;
           const var2 = result.data.trashCount;
-          const a = (var1 / var2) * 100;
+          const a = Math.round((var1 / var2) * 100);
           this.series = [a];
         })
         .catch(error => {
