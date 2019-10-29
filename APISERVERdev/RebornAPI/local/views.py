@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Level1, Level2, Level3, Place
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
+from .serializers import PlaceSerializer
 
 # Create your views here.
 @api_view(['GET'])
@@ -46,7 +47,7 @@ def lv3List(request, level2_pk):
         tmp['pk'] = level3.pk
         tmp['name'] = level3.name
         result.append(tmp)
-    print(result)        
+    print(result)
     print('출력완료')
     return Response(data=result)
 
@@ -63,3 +64,24 @@ def placeList(request, level3_pk):
         result.append(tmp)
     print('출력완료')
     return Response(data=result)
+
+@api_view(['POST'])
+def plusTrash(request, place_pk):
+    place = Place.objects.get(id=place_pk)
+    print(place, '선택완료!')
+    # print(request.POST)
+    trash = request.POST['trash_num']
+    if trash==1:
+        place.can += 1
+    elif trash==2:
+        place.paper += 1
+    elif trash==3:
+        place.plastic += 1
+    else:
+        place.mix += 1
+    place.trashCount += 1
+    place.save()
+    serializer = PlaceSerializer(place)
+    print(serializer.data)
+
+    return Response(data=serializer.data)
