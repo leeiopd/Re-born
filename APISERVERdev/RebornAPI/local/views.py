@@ -71,11 +71,11 @@ def plusTrash(request, place_pk):
     print(place, '선택완료!')
     # print(request.POST)
     trash = request.POST['trash_num']
-    if trash==1:
+    if trash=='1':
         place.can += 1
-    elif trash==2:
+    elif trash=='2':
         place.paper += 1
-    elif trash==3:
+    elif trash=='3':
         place.plastic += 1
     else:
         place.mix += 1
