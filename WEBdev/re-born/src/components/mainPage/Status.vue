@@ -1,7 +1,7 @@
 <template>
   <div style="height: 100%; background-color: #f0f0f0f0; padding-top:3vw;">
     <div class="container" style="margin:auto; width: 100%;">
-      <img src="../../assets/light-green.png" style="width: 40vw" />
+      <img src="../../assets/light-yellow.png" id="ppp" style="width: 40vw" />
     </div>
     <div>
       <h1 style="font-size: 3vw; text-aling: center">오늘의 재활용 지수는</h1>
@@ -38,7 +38,7 @@ export default {
           const a = var2 - var1;
           const nowValue = (a / var2) * 100;
           axios
-            .get(`${baseURL}/api/special/1/`)
+            .get(`${baseURL}/api/level1/6/`)
             .then(result => {
               const stateMix = result.data.trashMixed;
               const stateRecycled = result.data.trashRecycled;
@@ -47,7 +47,9 @@ export default {
 
               if (stateDefualt + 10 < nowValue) {
                 this.state = "좋음";
-                this.ImageSrc = "../../assets/light-green.png";
+                var src = "../../assets/light-green.png";
+                this.chanegImg(src);
+                console.log(this.ImageSrc);
               } else if (stateDefualt - 10 > nowValue) {
                 this.state = "나쁨";
                 this.ImageSrc = "../../assets/light-red.png";
@@ -63,6 +65,10 @@ export default {
         .catch(error => {
           console.log(error);
         });
+    },
+    changeImg: function() {
+      const aaa = document.getElementById("ppp");
+      aaa.src = "aaaaaaaaaaa";
     }
   }
 };
