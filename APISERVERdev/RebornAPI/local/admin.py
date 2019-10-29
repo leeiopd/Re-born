@@ -12,8 +12,8 @@ class Level3Admin(admin.ModelAdmin):
     list_display = ['id', 'name']
 
 class PlaceAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name']
-    
+    list_display = ['id', 'name', 'level3', 'trashCount', 'mix', 'paper', 'plastic', 'can']
+
 admin.site.register(Level1, Level1Admin)
 admin.site.register(Level2, Level2Admin)
 admin.site.register(Level3, Level3Admin)
