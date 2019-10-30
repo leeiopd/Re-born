@@ -1,5 +1,5 @@
 from django.contrib import admin
-from local.models import Level1, Level2, Level3, Place
+from local.models import Level1, Level2, Level3, Place, TrashInfo, Filecheck
 # Register your models here.
 
 
@@ -22,8 +22,15 @@ class Level3Admin(admin.ModelAdmin):
 class PlaceAdmin(admin.ModelAdmin):
     list_display = ['id', 'name']
 
+class TrashInfoAdmin(admin.ModelAdmin):
+    list_display = ['id', 'info', 'confused']
+
+class FilecheckAdmin(admin.ModelAdmin):
+    list_display = ['id', 'count']
 
 admin.site.register(Level1, Level1Admin)
 admin.site.register(Level2, Level2Admin)
 admin.site.register(Level3, Level3Admin)
 admin.site.register(Place, PlaceAdmin)
+admin.site.register(TrashInfo, TrashInfoAdmin)
+admin.site.register(Filecheck, FilecheckAdmin)

@@ -9,4 +9,8 @@ urlpatterns = [
     path('lv3list/<int:level2_pk>/', views.lv3List, name="lv3List"),
     path('placelist/<int:level3_pk>/', views.placeList, name="placeList"),
     # path('new/', views.new, name="new"),
+    path('plustrash/<int:place_pk>/', views.plusTrash, name="plusTrash"),
+    path('filechecks/', views.filechecks, name="fileChecks"),
+    path('trashinfo/', views.trashinfo, name="trashInfo"),
+
 ]
