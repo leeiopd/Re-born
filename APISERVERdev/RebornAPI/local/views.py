@@ -1,9 +1,13 @@
 from django.shortcuts import render
-from .models import Level1, Level2, Level3, Place
+from .models import Level1, Level2, Level3, Place, Filecheck, TrashInfo
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 
-# Create your views here.
+from .serializers import PlaceSerializer, TrashInfoSerializer
+import os, sys, glob, json
+from PIL import Image
+import datetime
+
 @api_view(['GET'])
 def lv1List(request):
     Level1s = Level1.objects.all()
@@ -46,7 +50,7 @@ def lv3List(request, level2_pk):
         tmp['pk'] = level3.pk
         tmp['name'] = level3.name
         result.append(tmp)
-    print(result)        
+    print(result)
     print('출력완료')
     return Response(data=result)
 
@@ -63,3 +67,80 @@ def placeList(request, level3_pk):
         result.append(tmp)
     print('출력완료')
     return Response(data=result)
+
+@api_view(['POST'])
+def plusTrash(request, place_pk):
+    place = Place.objects.get(id=place_pk)
+    print(place, '선택완료!')
+    trash = request.POST['tarsh_num']
+
+    if trash=='1':
+        place.can += 1
+    if trash=='2':
+        place.paper += 1
+    if trash=='3':
+        place.plastic += 1
+    else:
+        place.mix += 1
+    place.trashCount += 1
+    place.save()
+    serializer = PlaceSerializer(place)
+    print(serializer.data)
+
+    return Response(data=serializer)
+
+@api_view(['GET'])
+def filechecks(request):
+    checkpoint = Filecheck.objects.get(pk=1)
+    # print(datetime.datetime.now().strftime('%Y%m%d_%H:%M:%S'))
+    return Response(data=checkpoint.count)
+
+@api_view(['GET', 'POST'])
+def trashinfo(request):
+    ## 쓰레기 정보를 저장하는 모델 TrashInfo 와 관련된 함수입니다.
+
+    # POST 요청으로 오는 경우는 쓰레기 이미지 결과값을 저장할 때 사용됩니다.
+
+    # GET 요청으로 들어오는 경우는, 관리자가 실행할 수 있는 것이며,
+    # 크게 아래와 같은 활동으로 이루어집니다.
+    # 1. TrashInfo 에 있는 정보들을 json 파일 형식(현재 시간값을 파일 이름에 추가함으로써 유일성 보장)으로 저장
+    # 2. Filecheck point update (나중에 새로 이미지 만들때, 이름의 유일성을 가지기 위함)
+    # 3. input에 있는 파일(그림)들을 특정 디렉토리로 옮기기(ex, copy라는 폴더)
+    # 4. Trashinfo에 저장되어 있던 image DB 내용 삭제
+
+    if request.method == 'POST':
+        trash_num = request.POST.get('trash_num')
+        confused = request.POST.get('confused')
+        TrashInfo.objects.create(info=trash_num, confused=False)
+        return Response(data=[])
+    else:
+
+        # 1
+        confused_dic = TrashInfo.objects.filter(confused=True)
+        serializer = TrashInfoSerializer(confused_dic, many=True)
+        with open(f'trashinfo_{datetime.datetime.now().strftime("%Y%m%d_%H_%M_%S")}.json', 'w', encoding="utf-8") as make_file:
+            json.dump(serializer.data, make_file, indent="\t\t")
+
+        # 2
+        input_dir = glob.glob("./local/input/*")
+        input_files = [file for file in input_dir]
+        input_ids = [int(name[14:].replace('.jpg', '')) for name in input_dir]
+        checkpoint = Filecheck.objects.get(pk=1)
+        checkpoint.count = input_ids[0]
+        checkpoint.save()
+        print(input_files)
+        print(input_ids)
+
+        # 3
+        for file in input_files:
+            image = Image.open(file)
+            copy_image = file.replace('input', 'copy')
+            image.save(f'{copy_image}')
+            os.remove(file)
+
+        # 4
+        # for id in input_ids:
+        #     image = TrashInfo.objects.get(pk=id)
+        #     image.delete()
+
+        return Response(data=serializer.data)
