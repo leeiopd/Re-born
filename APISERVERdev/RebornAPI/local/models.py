@@ -14,14 +14,16 @@ class Level2(models.Model): # xx시 xx구 or xx구
     level1 = models.ForeignKey(Level1, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        text = self.level1.name + self.name
+        return text
 
 class Level3(models.Model): # 시
     name = models.CharField(max_length=50)
     level2 = models.ForeignKey(Level2, on_delete=models.CASCADE)
     
     def __str__(self):
-        return self.name
+        text = self.level2.name + self.name
+        return text
 
 class Place(models.Model): # 설치된 지점 ex) 삼성연수원점
     name = models.CharField(max_length=50)
@@ -38,6 +40,13 @@ class Place(models.Model): # 설치된 지점 ex) 삼성연수원점
 
     def __str__(self):
         return self.name
+
+class TrashInfo(models.Model):
+    info = models.CharField(max_length=30)
+    confused = models.BooleanField()
+
+class Filecheck(models.Model):
+    count = models.IntegerField()
 
 # class Gu(models.Model): # 구
 #     name = models.CharField(max_length=50)
