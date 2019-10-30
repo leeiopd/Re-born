@@ -1,19 +1,18 @@
 <template>
   <v-container>
-    <h1>지역 선택</h1>
-    <v-flex row wrap>
-      <kakaomap />
-    </v-flex>
+    <!-- <v-flex row wrap> -->
+    <Select />
+    <!-- </v-flex> -->
   </v-container>
 </template>
 
 <script>
-import kakaomap from "../components/LocalSelect/kakaomap";
+import Select from "../components/LocalSelect/select.vue";
 
 export default {
   components: {
-    kakaomap
-  },
+    Select
+  }
 };
 </script>
 

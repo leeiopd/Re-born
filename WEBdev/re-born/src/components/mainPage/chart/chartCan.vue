@@ -6,13 +6,15 @@
 
 <script>
 import VueApexCharts from "vue-apexcharts";
+import axios from "axios";
 export default {
   components: {
     apexchart: VueApexCharts
   },
   data() {
     return {
-      series: [14],
+      id: 1,
+      series: [0],
       chartOptions: {
         toolbar: {
           show: true
@@ -31,6 +33,26 @@ export default {
         labels: ["CAN"]
       }
     };
+  },
+  mounted() {
+    this.checkOther();
+  },
+  methods: {
+    checkOther: function() {
+      const baseURL = "http://localhost:8080";
+      const id = this.id;
+      axios
+        .get(`${baseURL}/api/place/${id}/`)
+        .then(result => {
+          const var1 = result.data.can;
+          const var2 = result.data.trashCount;
+          const a = Math.round((var1 / var2) * 100);
+          this.series = [a];
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
   }
 };
 </script>
