@@ -2,15 +2,25 @@
   <div class="container" style="padding-top: 5vh">
     <v-row no-gutters style="height: 100%;">
       <v-col cols="4">
-        <chartCan></chartCan>
-        <chartPaper></chartPaper>
+        <chartCan
+          :stid="this.stid"
+        />
+        <chartPaper
+          :stid="this.stid"
+        />
       </v-col>
       <v-col cols="4">
-        <chartAll></chartAll>
+        <chartAll
+          :stid="this.stid"
+        />
       </v-col>
       <v-col cols="4">
-        <chartPET></chartPET>
-        <chartOther></chartOther>
+        <chartPET
+          :stid="this.stid"
+        />
+        <chartOther
+          :stid="this.stid"
+        />
       </v-col>
     </v-row>
   </div>
@@ -24,6 +34,16 @@ import chartOther from "./chart/chartOther.vue";
 import chartAll from "./chart/chartAll.vue";
 
 export default {
+  props: {
+    stid: {
+      type: Number,
+      default: 1
+    },
+    placeName: {
+      type: String,
+      default: '유성연수원점'
+    }
+  },
   components: {
     chartCan,
     chartPET,

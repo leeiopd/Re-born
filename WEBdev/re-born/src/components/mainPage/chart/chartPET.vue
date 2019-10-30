@@ -8,12 +8,18 @@
 import VueApexCharts from "vue-apexcharts";
 import axios from "axios";
 export default {
+  props: {
+    stid: {
+      type: Number,
+      default: 1
+    }
+  },
   components: {
     apexchart: VueApexCharts
   },
   data() {
     return {
-      id: 1,
+      id: this.stid,
       series: [0],
       chartOptions: {
         colors: ["#6BCFFA"],

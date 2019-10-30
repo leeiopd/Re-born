@@ -1,10 +1,12 @@
 <template>
   <div style="height: 100%; background-color: #f0f0f0f0; padding-top:3vw;">
     <div class="container" style="margin:auto; width: 100%;">
-      <img src="../../assets/light-yellow.png" id="ppp" style="width: 40vw" />
+      <img v-if="color=='green'" src="../../assets/light-green.png" id="ppp" style="width: 40vw" />
+      <img v-else-if="color=='red'" src="../../assets/light-red.png" id="ppp" style="width: 40vw" />
+      <img v-else-if="color=='yellow'" src="../../assets/light-yellow.png" id="ppp" style="width: 40vw" />
     </div>
     <div>
-      <h1 style="font-size: 3vw; text-aling: center">오늘의 재활용 지수는</h1>
+      <h1 style="font-size: 3vw; text-aling: center">{{this.placeName}}의 재활용 지수는</h1>
       <h1 style="font-size: 3vw; text-aling: center">{{this.state}} 입니다.</h1>
     </div>
   </div>
@@ -14,16 +16,27 @@
 import axios from "axios";
 
 export default {
+  props: {
+    id: {
+      type: Number,
+      default: 1
+    },
+    placeName: {
+      type: String,
+      default: '유성연수원점'
+    }
+  },
   data: function() {
     return {
       state: "나쁨",
       id: 1,
-      placeName: "",
-      ImageSrc: ""
+      placeName: "유성연수원점",
+      color: ""
     };
   },
   mounted() {
     this.checkState();
+    console.log(this.placeName)
   },
   methods: {
     checkState: function() {
@@ -43,19 +56,17 @@ export default {
               const stateMix = result.data.trashMixed;
               const stateRecycled = result.data.trashRecycled;
               const stateAll = stateMix + stateRecycled;
-              const stateDefualt = (stateRecycled / stateAll) * 100;
+              const stateDefault = (stateRecycled / stateAll) * 100;
 
-              if (stateDefualt + 10 < nowValue) {
+              if (stateDefault + 10 < nowValue) {
                 this.state = "좋음";
-                var src = "../../assets/light-green.png";
-                this.chanegImg(src);
-                console.log(this.ImageSrc);
-              } else if (stateDefualt - 10 > nowValue) {
+                this.color = 'green'
+              } else if (stateDefault - 10 > nowValue) {
                 this.state = "나쁨";
-                this.ImageSrc = "../../assets/light-red.png";
+                this.color = 'red'
               } else {
                 this.state = "보통";
-                this.ImageSrc = "../../assets/light-yellow.png";
+                this.color = 'yellow'
               }
             })
             .catch(error => {
@@ -65,10 +76,6 @@ export default {
         .catch(error => {
           console.log(error);
         });
-    },
-    changeImg: function() {
-      const aaa = document.getElementById("ppp");
-      aaa.src = "aaaaaaaaaaa";
     }
   }
 };
