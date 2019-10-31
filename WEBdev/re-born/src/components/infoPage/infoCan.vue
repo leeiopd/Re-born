@@ -16,9 +16,9 @@
         <v-card-title class="headline grey lighten-2" primary-title>캔의 분리수거 방법</v-card-title>
 
         <v-card-text>
-          L철캔, 알루미늄캔 - 내용물을 비우고 가능한 압착
-          - 겉 또는 속의 플라스틱 뚜겅 등 제거
-          - 담배꽁초 등 이물질을 넣지 말 것
+          L철캔, 알루미늄캔 - 내용물을 비우고 가능한 압착<br>
+          - 겉 또는 속의 플라스틱 뚜겅 등 제거<br>
+          - 담배꽁초 등 이물질을 넣지 말 것<br>
           기타 캔류 - 구멍을 뚫어 내용물을 비운 후 배출
         </v-card-text>
 
