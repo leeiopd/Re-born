@@ -20,6 +20,11 @@ export default {
   components: {
     Status,
     Chart
+  },
+  created() {
+    setInterval(() => {
+      location.reload()
+    }, 30000)
   }
 };
 </script>

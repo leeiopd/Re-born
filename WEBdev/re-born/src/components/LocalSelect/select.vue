@@ -141,13 +141,13 @@ export default {
     level1ItemsStart: 0,
     level1ItemPk: 1,
     level1Last: 0,
-    addressLevel2: "",
+    addressLevel2: "종로구",
     level2Items: [],
     level2ItemSelect: "",
     level2ItemsStart: 0,
-    level2ItemPk: 1,
+    level2ItemPk: 6,
     level2Last: 0,
-    addressLevel3: "",
+    addressLevel3: "청운효자동",
     level3Items: [],
     level3ItemSelect: "",
     level3ItemsStart: 0,
@@ -161,13 +161,14 @@ export default {
     placeItemsStart: 0,
     dialog: false,
     stid: 1,
-    stplaceName: '유성연수원점'
+    stplaceName: '유성연수원점',
+    temp: [[], [], [], [], []]
   }),
   created() {
     this.loadLevel1(this.level1ItemsStart);
-    this.loadLevel2(this.level2ItemsStart, this.level1ItemPk);
-    this.loadLevel3(this.level3ItemsStart, this.level2ItemPk);
-    this.loadPlace(this.level2ItemPk);
+    // this.loadLevel2(this.level2ItemsStart, this.level1ItemPk);
+    // this.loadLevel3(this.level3ItemsStart, this.level2ItemPk);
+    // this.loadPlace(this.level3ItemPk);
   },
   methods: {
     loadLevel1(level1ItemsStart) {
@@ -182,6 +183,9 @@ export default {
             temp[i - level1ItemsStart] = result.data[i];
           }
           this.level1Items = temp;
+          // this.level1ItemPk = this.level1Items[0].pk
+          this.level2ItemsStart = 0
+          this.loadLevel2(0, this.level1ItemPk)
         })
         .catch(error => {
           console.log(error);
@@ -193,12 +197,22 @@ export default {
         .get(`${baseURL}/api/lv2list/${pk}/`)
         .then(result => {
           var len = result.data.length;
-          this.level2Last = len - 5;
-          const temp = [[], [], [], [], []];
-          for (var i = level2ItemsStart; i < level2ItemsStart + 5; i++) {
-            temp[i - level2ItemsStart] = result.data[i];
+          if (len >= 5) {
+            this.level2Last = len - 5;
+            const temp = [[], [], [], [], []];
+            for (var i = level2ItemsStart; i < level2ItemsStart + 5; i++) {
+              temp[i - level2ItemsStart] = result.data[i];
+            }
+            this.level2Items = temp;
+          } else {
+            const temp = [[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }]]
+            for (var i = 0; i < len; i++) {
+              temp[i] = result.data[i];
+            }
+            this.level2Items = temp;
           }
-          this.level2Items = temp;
+          // this.level2ItemPk = this.level2Items[0].pk
+          this.loadLevel3(0, this.level2ItemPk)
         })
         .catch(error => {
           console.log(error);
@@ -210,19 +224,23 @@ export default {
         .get(`${baseURL}/api/lv3list/${pk}/`)
         .then(result => {
           var len = result.data.length;
-          if (len <= 5) {
-            var temp = [];
-            temp = result.data;
-            this.level3Items = temp;
-          } else {
+          if (len >= 5) {
             this.level3Last = len - 5;
-            var temp = [[], [], [], [], []];
+            const temp = [[], [], [], [], []];
             for (var i = level3ItemsStart; i < level3ItemsStart + 5; i++) {
               temp[i - level3ItemsStart] = result.data[i];
             }
-
             this.level3Items = temp;
+          } else {
+            const temp = [[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }]]
+            for (var i = 0; i < len; i++) {
+              temp[i] = result.data[i];
+            }
+            this.level3Items = temp;
+            this.placeItemsStart = 0
           }
+          // this.level3ItemPk = this.level3Items[0].pk
+          this.loadPlace(1)
         })
         .catch(error => {
           console.log(error);
@@ -244,13 +262,14 @@ export default {
           } else {
             const temp = [[], [], [], [], []];
             const data = result.data[0];
-            temp[0] = data;
+            temp[0] = { pk: data.pk, name: data.name };
             temp[1] = { pk: 99999, name: "X" };
             temp[2] = { pk: 99999, name: "X" };
             temp[3] = { pk: 99999, name: "X" };
             temp[4] = { pk: 99999, name: "X" };
             this.placeItems = temp;
           }
+          this.placeItemPk = this.placeItems[0].pk
         })
         .catch(error => {
           console.log(error);
@@ -261,35 +280,55 @@ export default {
       this.addressLevel1 = city;
       this.addressLevel2 = "";
       this.addressLevel3 = "";
-      this.level2itemsStart = 0;
       this.level1ItemPk = pk;
-      var start = this.level2ItemsStart;
-      this.loadLevel2(start, pk);
+      const baseURL = "http://localhost:8080";
+      axios.get(`${baseURL}/api/lv2list/${pk}/`).then(res => {
+        this.level2ItemPk = res.data[0].pk
+        this.level2ItemsStart = 0
+        this.level2Last = res.data.length - 5
+      });
+      axios.get(`${baseURL}/api/lv3list/${this.level2ItemPk}/`).then(res => {
+        this.level3ItemPk = res.data[0].pk
+        this.level3ItemsStart = 0
+        this.level3Last = res.data.length - 5
+      });
+      var start1 = this.level2ItemsStart;
+      this.loadLevel2(0, this.level1ItemPk);
     },
     itemSelectLevel2(city, pk) {
       this.level2ItemSelect = city;
+      this.addressLevel1 = this.addressLevel1;
       this.addressLevel2 = city;
       this.addressLevel3 = "";
-      this.level3itemsStart = 0;
       this.level2ItemPk = pk;
-      var start = this.level3ItemsStart;
-      this.loadLevel3(start, pk);
+      const baseURL = "http://localhost:8080";
+      axios.get(`${baseURL}/api/lv3list/${this.level2ItemPk}/`).then(res => {
+        this.level3ItemPk = res.data[0].pk
+        this.level3ItemsStart = 0
+        this.level3Last = res.data.length - 5
+      });
+      
+      var start2 = this.level3ItemsStart;
+      this.loadLevel3(0, this.level2ItemPk);
     },
     itemSelectLevel3(city, pk) {
       this.level3ItemSelect = city;
+      this.addressLevel1 = this.addressLevel1;
+      this.addressLevel2 = this.addressLevel2;
       this.addressLevel3 = city;
       this.level3ItemPk = pk;
-      this.loadPlace(pk);
+      this.loadPlace(this.level3ItemPk);
     },
     itemSelectPalce(pk, city) {
       if (pk === 99999) {
         alert("아직 설치되지 않은 지역입니다.");
+      } else {
+        this.placesItemSelect = city;
+        this.stid = pk;
+        this.stplaceName = city;
+        this.dialog = true;
       }
-      this.placesItemSelect = city;
-      this.stid = pk;
-      this.stplaceName = city;
-      this.dialog = true;
-    },
+    }, 
     level1ItemsNext(start) {
       if (start < this.level1Last) {
         this.level1ItemsStart = start + 1;

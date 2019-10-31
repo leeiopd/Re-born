@@ -29,8 +29,6 @@ export default {
   data: function() {
     return {
       state: "나쁨",
-      id: 1,
-      placeName: "유성연수원점",
       color: ""
     };
   },
