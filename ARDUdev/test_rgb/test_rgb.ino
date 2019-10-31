@@ -55,59 +55,65 @@ void loop()
     if (wavesensor(2)){
       return;
     }
-    int res = 3; // 라즈베리로 받은 값이 플라스틱일경우 가정하고
-    if (res == 1) {
-      Serial.println("mode 1");
-      servomotor(1);
-      delay(1000);
-      // 위에 덮개 열어주는 함수 실행
-
-      delay(1000);
-      // 쓰레기를 360도 회전으로 쓸어준다.
-      servo360();
-
-      delay(5000);
-      Serial.println("mode 2");
-      servomotor(2);
-    }
-    else if (res == 2) {
-      Serial.println("mode 2");
-      servomotor(2);
-      delay(1000);
-      // 위에 덮개 열어주는 함수 실행
-
-      delay(1000);
-      // 쓰레기를 360도 회전으로 쓸어준다.
-      servo360();
-      delay(5000);
-      Serial.println("mode 1");
-      servomotor(1);
-    }
-    else if (res == 3) {
-      Serial.println("mode 3");
-      servomotor(3);
-      delay(1000);
-      // 위에 덮개 열어주는 함수 실행
-
-      delay(1000);
-      // 쓰레기를 360도 회전으로 쓸어준다.
-      servo360();
-      delay(5000);
-      Serial.println("mode 4");
-      servomotor(4);
-    }
-    else if (res == 4) {
-      Serial.println("mode 4");
-      servomotor(4);
-      delay(1000);
-      // 위에 덮개 열어주는 함수 실행
-
-      delay(1000);
-      // 쓰레기를 360도 회전으로 쓸어준다.
-      servo360();
-      delay(5000);
-      Serial.println("mode 3");
-      servomotor(3);
+    Serial.println(1); // 카메라모듈로 신호 보냄
+    delay(5000);
+    if (Serial.available()) {
+      long res = Serial.parseInt();
+      // Serial.println(Serial.read());
+      // int res = 3; // 라즈베리로 받은 값이 플라스틱일경우 가정하고
+      if (res == 1) {
+        Serial.println("mode 1");
+        servomotor(1);
+        delay(1000);
+        // 위에 덮개 열어주는 함수 실행
+  
+        delay(1000);
+        // 쓰레기를 360도 회전으로 쓸어준다.
+        servo360();
+  
+        delay(2500);
+        Serial.println("mode 2");
+        servomotor(2);
+      }
+      else if (res == 2) {
+        Serial.println("mode 2");
+        servomotor(2);
+        delay(1000);
+        // 위에 덮개 열어주는 함수 실행
+  
+        delay(1000);
+        // 쓰레기를 360도 회전으로 쓸어준다.
+        servo360();
+        delay(5000);
+        Serial.println("mode 1");
+        servomotor(1);
+      }
+      else if (res == 3) {
+        Serial.println("mode 3");
+        servomotor(3);
+        delay(1000);
+        // 위에 덮개 열어주는 함수 실행
+  
+        delay(1000);
+        // 쓰레기를 360도 회전으로 쓸어준다.
+        servo360();
+        delay(5000);
+        Serial.println("mode 4");
+        servomotor(4);
+      }
+      else if (res == 4) {
+        Serial.println("mode 4");
+        servomotor(4);
+        delay(1000);
+        // 위에 덮개 열어주는 함수 실행
+  
+        delay(1000);
+        // 쓰레기를 360도 회전으로 쓸어준다.
+        servo360();
+        delay(5000);
+        Serial.println("mode 3");
+        servomotor(3);
+      }
     }
   }
 }
