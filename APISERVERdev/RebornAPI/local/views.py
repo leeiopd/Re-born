@@ -166,3 +166,14 @@ def trashinfo(request):
         #     image.delete()
 
         return Response(data=serializer.data)
+    
+@api_view(['POST'])
+def placeUpdate(request):
+    place_pk = 1
+    place = Place.objects.get(pk=place_pk)
+    # how to alert to vue..?? arduino > python camera > views > vue????
+    place.isFullMix = request.POST['full']
+    # print(place.__dict__)
+    place.save()
+    
+    return Response(data=[])
