@@ -2,11 +2,14 @@ from django.shortcuts import render
 from .models import Level1, Level2, Level3, Place, Filecheck, TrashInfo
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
+from .serializers import PlaceSerializer
 
 from .serializers import PlaceSerializer, TrashInfoSerializer
 import os, sys, glob, json
 from PIL import Image
 import datetime
+
+from django.db.models import Q
 
 @api_view(['GET'])
 def lv1List(request):
@@ -72,13 +75,14 @@ def placeList(request, level3_pk):
 def plusTrash(request, place_pk):
     place = Place.objects.get(id=place_pk)
     print(place, '선택완료!')
-    trash = request.POST['tarsh_num']
+
+    trash = request.POST['trash_num']
 
     if trash=='1':
         place.can += 1
-    if trash=='2':
+    elif trash=='2':
         place.paper += 1
-    if trash=='3':
+    elif trash=='3':
         place.plastic += 1
     else:
         place.mix += 1
@@ -86,8 +90,7 @@ def plusTrash(request, place_pk):
     place.save()
     serializer = PlaceSerializer(place)
     print(serializer.data)
-
-    return Response(data=serializer)
+    return Response(data=serializer.data)
 
 @api_view(['GET'])
 def filechecks(request):
@@ -111,12 +114,30 @@ def trashinfo(request):
     if request.method == 'POST':
         trash_num = request.POST.get('trash_num')
         confused = request.POST.get('confused')
-        TrashInfo.objects.create(info=trash_num, confused=False)
+        
+        if trash_num=='1':
+            TrashInfo.objects.create(info='can', confused=confused)
+        elif trash_num=='2':
+            TrashInfo.objects.create(info='paper', confused=confused)
+        elif trash_num=='3':
+            TrashInfo.objects.create(info='plastic', confused=confused)
+        else:
+            TrashInfo.objects.create(info='mix', confused=confused)
+            
+        
         return Response(data=[])
+    
     else:
-
+        ## save trash related information!!
+        # 1. save Trashinfo data > .json
+        # 2. save next_num (using in .jpg name!)
+        # 3. copy image (input > copy) and delete input image
+        # 4. delete trashinfo data in model
+        
         # 1
-        confused_dic = TrashInfo.objects.filter(confused=True)
+        
+        # filter mixggggggggggggg
+        confused_dic = TrashInfo.objects.filter(Q(confused=True) | Q(info='mix'))
         serializer = TrashInfoSerializer(confused_dic, many=True)
         with open(f'trashinfo_{datetime.datetime.now().strftime("%Y%m%d_%H_%M_%S")}.json', 'w', encoding="utf-8") as make_file:
             json.dump(serializer.data, make_file, indent="\t\t")
@@ -126,7 +147,7 @@ def trashinfo(request):
         input_files = [file for file in input_dir]
         input_ids = [int(name[14:].replace('.jpg', '')) for name in input_dir]
         checkpoint = Filecheck.objects.get(pk=1)
-        checkpoint.count = input_ids[0]
+        checkpoint.count = TrashInfo.objects.latest('id').id
         checkpoint.save()
         print(input_files)
         print(input_ids)
@@ -139,6 +160,7 @@ def trashinfo(request):
             os.remove(file)
 
         # 4
+        TrashInfo.objects.all().delete()
         # for id in input_ids:
         #     image = TrashInfo.objects.get(pk=id)
         #     image.delete()
