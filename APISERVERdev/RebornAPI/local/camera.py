@@ -63,27 +63,32 @@ def predict_image(image):
 # 6. REQUESTS gogo~~
 ##
 
-
 # 1. find next_num using filechecks url to get next_num
-url_base = 'http://127.0.0.1:8000'
+url_base = 'http://127.0.0.1:8080'
 place_pk = 1
 url_getnumber = '/api/filechecks/'
 url_createtrashinfo = '/api/trashinfo/'
 url_plus = f'/api/plustrash/{place_pk}/'
 response = requests.get(url_base + url_getnumber)
 next_num = response.json() + 1
-
+print(next_num, 'pppppppppppppppppppppppp')
+# full_flag = False
 
 ser = serial.Serial("/dev/ttyACM0", 9600)
+
+before_flag = False
+current_flag = False
 
 while True:
     data = ser.readline()
     res = data.decode()
     
-    if res == '1\r\n':
+
+    if res == '5\r\n':
         print('success')
         # camera start     
-
+        current_flag = False
+      
         # 2. Let's take a picture~~
         camera = PiCamera()
         camera.resolution = (450,450)
@@ -135,3 +140,33 @@ while True:
         ser.write(result)
         print('success~~~~~~~~~~~~~~~~~~~~~~~1')
         next_num += 1
+      
+    
+    elif res == '1\r\n': # red(can) full
+        current_flag = True
+        print('red is full')
+        
+    elif res == '2\r\n': # green(paper) full
+        current_flag = True
+        print('green is full')
+    
+    elif res == '3\r\n': # plastic full
+        current_flag = True
+        print('plastic is full')
+        
+    elif res == '4\r\n': # mix full
+        current_flag = True
+        print('mix is full')
+    
+    if current_flag!=before_flag:
+        url_tmp = '/api/placed/update/'
+        data3 = {'full':current_flag}
+        response = requests.post(url_base + url_tmp, data=data3)
+        
+        if current_flag:
+            print('lets axios >>> false > True')
+            # change False > True
+        else:
+            print('lets axios >>> true > False')
+        
+    before_flag = current_flag    
