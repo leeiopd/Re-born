@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
-from .models import Place, TrashInfo
 from rest_framework import serializers
+from .models import Place, TrashInfo
+
+
 
 
 class PlaceSerializer(serializers.ModelSerializer):
@@ -12,4 +14,3 @@ class TrashInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = TrashInfo
         fields =  "__all__"
-        # fields = ('id', 'username')
