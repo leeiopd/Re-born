@@ -13,10 +13,10 @@
       </template>
 
       <v-card>
-        <v-card-title class="headline grey lighten-2" primary-title>Privacy Policy</v-card-title>
+        <v-card-title class="display-1 grey lighten-2" primary-title>페트병의 분리수거 방법</v-card-title>
 
-        <v-card-text>
-          L뚜껑을 제거한 후, 내용물을 비우고 물로 헹군 후 가능한 압착
+        <v-card-text class="title font-weight-black">
+          <br>- 뚜껑을 제거한 후, 내용물을 비우고 가능한 압착하여 배출<br>
         </v-card-text>
 
         <v-divider></v-divider>
