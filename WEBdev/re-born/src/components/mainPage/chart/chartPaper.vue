@@ -29,7 +29,7 @@ export default {
         plotOptions: {
           radialBar: {
             hollow: {
-              size: "50%"
+              size: "40%"
             }
           }
         },
