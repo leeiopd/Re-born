@@ -20,6 +20,13 @@ export default {
   components: {
     Status,
     Chart
+  },
+  created() {
+    // setInterval(() => {
+    //   if (window.location.href == 'http://localhost:8081/') {
+    //     location.reload()
+    //   }
+    // }, 30000)
   }
 };
 </script>
