@@ -8,20 +8,16 @@
           v-on="on"
           @click="dialog = true"
           fab
-          style="width: 11vw; height: 11vw; font-size: 3vw; font-family: 'Gamja Flower', cursive;"
+          style="width: 15vw; height: 15vw; font-size: 5vw; font-family: 'Gamja Flower', cursive;"
         >종이팩</v-btn>
       </template>
-
       <v-card>
         <v-card-title class="display-1 grey lighten-2" primary-title>종이팩의 분리수거 방법</v-card-title>
-
         <v-card-text class="title font-weight-black">
           <br>- 내용물을 비운 뒤 물로 헹군 후 압착하여 배출<br>
           - 일반 종이류와 혼합되지 않게 구분
         </v-card-text>
-
         <v-divider></v-divider>
-
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="primary" text @click="dialog = false">I accept</v-btn>
