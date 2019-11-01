@@ -105,7 +105,6 @@
       <v-row no-gutters style="height: 100%;">
         <v-col cols="6">
           <v-card class="pa-2" outlined tile style="height: 100%; text-align: center;">
-            <v-btn absolute @click="dialog=false">이것은 닫기버튼입니다 배치를 어떻게...</v-btn>
             <Status 
               :stid="this.stid"
               :placeName="this.stplaceName"

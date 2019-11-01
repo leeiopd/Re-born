@@ -13,9 +13,13 @@
       </template>
 
       <v-card>
-        <v-card-title class="headline grey lighten-2" primary-title>Privacy Policy</v-card-title>
+        <v-card-title class="display-1 grey lighten-2" primary-title>종이의 분리수거 방법</v-card-title>
 
-        <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</v-card-text>
+        <v-card-text class="title font-weight-black">
+          <br>- 테이프나 철판을 제거<br>
+          - 코팅된 표지, 스프링은 제거<br>
+          - 물기에 젖지 않은 상태로 배출
+        </v-card-text>
 
         <v-divider></v-divider>
 

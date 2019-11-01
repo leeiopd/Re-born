@@ -13,9 +13,12 @@
       </template>
 
       <v-card>
-        <v-card-title class="headline grey lighten-2" primary-title>Privacy Policy</v-card-title>
+        <v-card-title class="display-1 grey lighten-2" primary-title>유리병의 분리수거 방법</v-card-title>
 
-        <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</v-card-text>
+        <v-card-text class="title font-weight-black">
+          <br>- 뚜껑 제거 후 내용물을 비운 후 배출<br>
+          - 이물질을 넣지 말 것
+        </v-card-text>
 
         <v-divider></v-divider>
 
