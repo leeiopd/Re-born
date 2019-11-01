@@ -48,10 +48,13 @@ export default {
     };
   },
   mounted() {
-    this.checkOther();
+    this.checkCan();
+    setInterval(() => {
+        this.checkCan()
+    }, 30000)
   },
   methods: {
-    checkOther: function() {
+    checkCan: function() {
       const baseURL = "http://localhost:8080";
       const id = this.id;
       axios

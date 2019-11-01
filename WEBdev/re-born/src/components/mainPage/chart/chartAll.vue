@@ -49,6 +49,9 @@ export default {
   },
   mounted() {
     this.checkOther();
+    setInterval(() => {
+        this.checkOther()
+    }, 30000)
   },
   methods: {
     checkOther: function() {

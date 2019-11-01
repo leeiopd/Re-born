@@ -37,6 +37,9 @@ export default {
   },
   mounted() {
     this.checkState();
+    setInterval(() => {
+        this.checkState()
+    }, 30000)
   },
   methods: {
     checkState: function() {

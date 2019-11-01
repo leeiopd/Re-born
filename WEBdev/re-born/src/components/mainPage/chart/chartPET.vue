@@ -46,6 +46,9 @@ export default {
   },
   mounted() {
     this.checkPET();
+    setInterval(() => {
+        this.checkPET()
+    }, 30000)
   },
   methods: {
     checkPET: function() {
