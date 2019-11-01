@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div style="width: 80vw; height: 100%; text-align:center;">
-      <h1>{{addressLevel1}} {{addressLevel2}} {{addressLevel3}} {{addressPlace}}</h1>
+      <div style="font-size: 1.5vw">{{addressLevel1}} {{addressLevel2}} {{addressLevel3}} {{addressPlace}}</div>
       <v-row>
         <v-col style="width: 20%;">
           <div>
@@ -153,7 +153,7 @@ export default {
     level3ItemPk: 1,
     level3Last: 0,
     addressPlace: "",
-    placeItems: [[], [], [], [], []],
+    placeItems: [[], [], [], []],
     placeItemSelect: "",
     placeItemPk: 1,
     placeLast: 0,
@@ -161,13 +161,10 @@ export default {
     dialog: false,
     stid: 1,
     stplaceName: '유성연수원점',
-    temp: [[], [], [], [], []]
+    temp: [[], [], [], []]
   }),
   created() {
     this.loadLevel1(this.level1ItemsStart);
-    // this.loadLevel2(this.level2ItemsStart, this.level1ItemPk);
-    // this.loadLevel3(this.level3ItemsStart, this.level2ItemPk);
-    // this.loadPlace(this.level3ItemPk);
   },
   methods: {
     loadLevel1(level1ItemsStart) {
@@ -176,13 +173,12 @@ export default {
         .get(`${baseURL}/api/lv1list/`)
         .then(result => {
           var len = result.data.length;
-          this.level1Last = len - 5;
-          const temp = [[], [], [], [], []];
-          for (var i = level1ItemsStart; i < level1ItemsStart + 5; i++) {
+          this.level1Last = len - 4;
+          const temp = [[], [], [], []];
+          for (var i = level1ItemsStart; i < level1ItemsStart + 4; i++) {
             temp[i - level1ItemsStart] = result.data[i];
           }
           this.level1Items = temp;
-          // this.level1ItemPk = this.level1Items[0].pk
           this.level2ItemsStart = 0
           this.loadLevel2(0, this.level1ItemPk)
         })
@@ -196,21 +192,20 @@ export default {
         .get(`${baseURL}/api/lv2list/${pk}/`)
         .then(result => {
           var len = result.data.length;
-          if (len >= 5) {
-            this.level2Last = len - 5;
-            const temp = [[], [], [], [], []];
-            for (var i = level2ItemsStart; i < level2ItemsStart + 5; i++) {
+          if (len >= 4) {
+            this.level2Last = len - 4;
+            const temp = [[], [], [], []];
+            for (var i = level2ItemsStart; i < level2ItemsStart + 4; i++) {
               temp[i - level2ItemsStart] = result.data[i];
             }
             this.level2Items = temp;
           } else {
-            const temp = [[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }]]
+            const temp = [[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }]]
             for (var i = 0; i < len; i++) {
               temp[i] = result.data[i];
             }
             this.level2Items = temp;
           }
-          // this.level2ItemPk = this.level2Items[0].pk
           this.loadLevel3(0, this.level2ItemPk)
         })
         .catch(error => {
@@ -223,22 +218,21 @@ export default {
         .get(`${baseURL}/api/lv3list/${pk}/`)
         .then(result => {
           var len = result.data.length;
-          if (len >= 5) {
-            this.level3Last = len - 5;
-            const temp = [[], [], [], [], []];
-            for (var i = level3ItemsStart; i < level3ItemsStart + 5; i++) {
+          if (len >= 4) {
+            this.level3Last = len - 4;
+            const temp = [[], [], [], []];
+            for (var i = level3ItemsStart; i < level3ItemsStart + 4; i++) {
               temp[i - level3ItemsStart] = result.data[i];
             }
             this.level3Items = temp;
           } else {
-            const temp = [[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }]]
+            const temp = [[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }],[{ pk: 99999, name: "X" }]]
             for (var i = 0; i < len; i++) {
               temp[i] = result.data[i];
             }
             this.level3Items = temp;
             this.placeItemsStart = 0
           }
-          // this.level3ItemPk = this.level3Items[0].pk
           this.loadPlace(1)
         })
         .catch(error => {
@@ -251,21 +245,19 @@ export default {
         .get(`${baseURL}/api/placelist/${pk}/`)
         .then(result => {
           if (result.data.length === 0) {
-            const temp = [[], [], [], [], []];
+            const temp = [[], [], [], []];
             temp[0] = { pk: 99999, name: "X" };
             temp[1] = { pk: 99999, name: "설치된 장소가" };
             temp[2] = { pk: 99999, name: "  없습니다.  " };
             temp[3] = { pk: 99999, name: "X" };
-            temp[4] = { pk: 99999, name: "X" };
             this.placeItems = temp;
           } else {
-            const temp = [[], [], [], [], []];
+            const temp = [[], [], [], []];
             const data = result.data[0];
             temp[0] = { pk: data.pk, name: data.name };
             temp[1] = { pk: 99999, name: "X" };
             temp[2] = { pk: 99999, name: "X" };
             temp[3] = { pk: 99999, name: "X" };
-            temp[4] = { pk: 99999, name: "X" };
             this.placeItems = temp;
           }
           this.placeItemPk = this.placeItems[0].pk
@@ -284,12 +276,12 @@ export default {
       axios.get(`${baseURL}/api/lv2list/${pk}/`).then(res => {
         this.level2ItemPk = res.data[0].pk
         this.level2ItemsStart = 0
-        this.level2Last = res.data.length - 5
+        this.level2Last = res.data.length - 4
       });
       axios.get(`${baseURL}/api/lv3list/${this.level2ItemPk}/`).then(res => {
         this.level3ItemPk = res.data[0].pk
         this.level3ItemsStart = 0
-        this.level3Last = res.data.length - 5
+        this.level3Last = res.data.length - 4
       });
       var start1 = this.level2ItemsStart;
       this.loadLevel2(0, this.level1ItemPk);
@@ -304,9 +296,8 @@ export default {
       axios.get(`${baseURL}/api/lv3list/${this.level2ItemPk}/`).then(res => {
         this.level3ItemPk = res.data[0].pk
         this.level3ItemsStart = 0
-        this.level3Last = res.data.length - 5
+        this.level3Last = res.data.length - 4
       });
-      
       var start2 = this.level3ItemsStart;
       this.loadLevel3(0, this.level2ItemPk);
     },
