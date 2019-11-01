@@ -23,7 +23,9 @@ export default {
   },
   created() {
     setInterval(() => {
-      location.reload()
+      if (window.location.href == 'http://localhost:8081/') {
+        location.reload()
+      }
     }, 30000)
   }
 };
