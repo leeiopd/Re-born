@@ -45,7 +45,6 @@ export default {
       axios
         .get(`${baseURL}/api/place/${id}/`)
         .then(result => {
-          console.log(result);
           const var1 = result.data.mix;
           const var2 = result.data.trashCount;
           const a = var2 - var1;
