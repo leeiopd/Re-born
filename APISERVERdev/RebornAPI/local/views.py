@@ -16,13 +16,10 @@ def lv1List(request):
     Level1s = Level1.objects.all()
     result = []
     for level1 in Level1s:
-        print(level1.name, level1.pk)
         tmp = {}
         tmp['pk'] = level1.pk
         tmp['name'] = level1.name
         result.append(tmp)
-    print(result)
-    print('출력완료')
     return Response(data=result)
 
 
@@ -30,16 +27,12 @@ def lv1List(request):
 def lv2List(request, level1_pk):
     level1 = Level1.objects.get(id=level1_pk)
     Level2s = level1.level2_set.all()
-    # print(Level2s)
     result = []
     for level2 in Level2s:
-        print(level2.name, level2.pk)
         tmp = {}
         tmp['pk'] = level2.pk
         tmp['name'] = level2.name
         result.append(tmp)
-    print(result)
-    print('출력완료')
     return Response(data=result)
 
 @api_view(['GET'])
@@ -48,13 +41,10 @@ def lv3List(request, level2_pk):
     Level3s = level2.level3_set.all()
     result = []
     for level3 in Level3s:
-        print(level3.name, level3.pk)
         tmp = {}
         tmp['pk'] = level3.pk
         tmp['name'] = level3.name
         result.append(tmp)
-    print(result)
-    print('출력완료')
     return Response(data=result)
 
 @api_view(['GET'])
@@ -63,18 +53,15 @@ def placeList(request, level3_pk):
     Places = level3.place_set.all()
     result = []
     for place in Places:
-        print(place.name, place.pk)
         tmp = {}
         tmp['pk'] = place.pk
         tmp['name'] = place.name
         result.append(tmp)
-    print('출력완료')
     return Response(data=result)
 
 @api_view(['POST'])
 def plusTrash(request, place_pk):
     place = Place.objects.get(id=place_pk)
-    print(place, '선택완료!')
 
     trash = request.POST['trash_num']
 
@@ -89,13 +76,11 @@ def plusTrash(request, place_pk):
     place.trashCount += 1
     place.save()
     serializer = PlaceSerializer(place)
-    print(serializer.data)
     return Response(data=serializer.data)
 
 @api_view(['GET'])
 def filechecks(request):
     checkpoint = Filecheck.objects.get(pk=1)
-    # print(datetime.datetime.now().strftime('%Y%m%d_%H:%M:%S'))
     return Response(data=checkpoint.count)
 
 @api_view(['GET', 'POST'])
@@ -149,8 +134,6 @@ def trashinfo(request):
         checkpoint = Filecheck.objects.get(pk=1)
         checkpoint.count = TrashInfo.objects.latest('id').id
         checkpoint.save()
-        print(input_files)
-        print(input_ids)
 
         # 3
         for file in input_files:
@@ -173,7 +156,6 @@ def placeUpdate(request):
     place = Place.objects.get(pk=place_pk)
     # how to alert to vue..?? arduino > python camera > views > vue????
     place.isFullMix = request.POST['full']
-    # print(place.__dict__)
     place.save()
     
     return Response(data=[])

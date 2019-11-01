@@ -46,6 +46,9 @@ export default {
   },
   mounted() {
     this.checkPaper();
+    setInterval(() => {
+        this.checkPaper()
+    }, 30000)
   },
   methods: {
     checkPaper: function() {

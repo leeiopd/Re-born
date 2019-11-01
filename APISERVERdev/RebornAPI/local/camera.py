@@ -27,7 +27,7 @@ def predict_image(image):
     input = Variable(image_tensor)
     input = input.to(device)
     output = model(input)
-    print(classes)
+    # print(classes)
     #print(torch.exp(output))
     #max_percent = torch.max(torch.exp(output))
     tensors = sorted(torch.exp(output)[0])
@@ -71,7 +71,7 @@ url_createtrashinfo = '/api/trashinfo/'
 url_plus = f'/api/plustrash/{place_pk}/'
 response = requests.get(url_base + url_getnumber)
 next_num = response.json() + 1
-print(next_num, 'pppppppppppppppppppppppp')
+# print(next_num, 'pppppppppppppppppppppppp')
 # full_flag = False
 
 ser = serial.Serial("/dev/ttyACM0", 9600)
@@ -85,7 +85,7 @@ while True:
     
 
     if res == '5\r\n':
-        print('success')
+        # print('success')
         # camera start     
         current_flag = False
       
@@ -138,35 +138,35 @@ while True:
         result = str(result)
         result = result.encode('utf-8')
         ser.write(result)
-        print('success~~~~~~~~~~~~~~~~~~~~~~~1')
+        # print('success~~~~~~~~~~~~~~~~~~~~~~~1')
         next_num += 1
       
     
     elif res == '1\r\n': # red(can) full
         current_flag = True
-        print('red is full')
+        # print('red is full')
         
     elif res == '2\r\n': # green(paper) full
         current_flag = True
-        print('green is full')
+        # print('green is full')
     
     elif res == '3\r\n': # plastic full
         current_flag = True
-        print('plastic is full')
+        # print('plastic is full')
         
     elif res == '4\r\n': # mix full
         current_flag = True
-        print('mix is full')
+        # print('mix is full')
     
     if current_flag!=before_flag:
         url_tmp = '/api/placed/update/'
         data3 = {'full':current_flag}
         response = requests.post(url_base + url_tmp, data=data3)
         
-        if current_flag:
-            print('lets axios >>> false > True')
-            # change False > True
-        else:
-            print('lets axios >>> true > False')
+        # if current_flag:
+        #     print('lets axios >>> false > True')
+        #     # change False > True
+        # else:
+        #     print('lets axios >>> true > False')
         
     before_flag = current_flag    
