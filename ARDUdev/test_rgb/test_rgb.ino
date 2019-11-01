@@ -50,12 +50,14 @@ void loop()
     // 순서는 캔 1, 페이퍼 2, 플라스틱 3, 트래쉬 4
     // 색깔은  Red ,   Green ,   Blue,   Purple
     if (wavesensor(1)){
+      Serial.println(1); // 파이썬으로 isFullCan
       return;
     }
     if (wavesensor(2)){
+      Serial.println(2); // 파이썬으로 isFullPaper
       return;
     }
-    Serial.println(1); // 카메라모듈로 신호 보냄
+    Serial.println(5); // 카메라모듈로 신호 보냄
     delay(5000);
     if (Serial.available()) {
       long res = Serial.parseInt();
@@ -117,6 +119,3 @@ void loop()
     }
   }
 }
-
-
-
