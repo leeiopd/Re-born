@@ -2,8 +2,8 @@
   <v-app>
     <v-toolbar-title id="app" style="height: 100vh">
       <v-toolbar-title>
-        <v-toolbar style="background-color: #2196F3; height: 22vh;">
-          <v-toolbar-title style="padding-top: 12vh;">
+        <v-toolbar style="background-color: #2196F3; height: 18vh;">
+          <v-toolbar-title style="padding-top: 6vh;">
             <div style="display: inline;">
               <img
                 class="animated tada slow infinite"
@@ -21,7 +21,7 @@
           </v-toolbar-title>
         </v-toolbar>
       </v-toolbar-title>
-      <div style="height: 68vh; border: none;" fluid ma-0 pa-0 fill-height>
+      <div style="height: 72vh; border: none;" fluid ma-0 pa-0 fill-height>
         <router-view style="height: 100%" />
       </div>
       <v-bottom-navigation

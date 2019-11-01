@@ -1,27 +1,27 @@
 <template>
-  <div class="container" style="padding-top: 5vh">
+  <div class="container" style="padding-top: 5vh; height:100%">
     <v-row no-gutters style="height: 100%;">
-      <v-col cols="4">
+      <span style="position: absolute; left:-6vw; top:-3vh; width:30vw; margin-left:0">
         <chartCan
           :stid="this.stid"
         />
         <chartPaper
           :stid="this.stid"
         />
-      </v-col>
-      <v-col cols="4">
+      </span>
+      <span style="position: absolute; right:50px; top:-5vh">
         <chartAll
           :stid="this.stid"
         />
-      </v-col>
-      <v-col cols="4">
+      </span>
+      <span style="position: absolute; right:-6vw; top:-3vh; width:30vw; margin-right:0">
         <chartPET
           :stid="this.stid"
         />
         <chartOther
           :stid="this.stid"
         />
-      </v-col>
+      </span>
     </v-row>
   </div>
 </template>

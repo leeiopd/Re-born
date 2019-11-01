@@ -32,7 +32,14 @@ export default {
         plotOptions: {
           radialBar: {
             hollow: {
-              size: "20%"
+              size: "50%"
+            },
+            dataLabels: {
+              name: {
+                fontSize: '26px'
+              },
+              value: {
+                fontSize: '22px'              }
             }
           }
         },

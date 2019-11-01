@@ -1,13 +1,13 @@
 <template>
-  <v-container>
-    <div style="width: 80vw; height: 100%; text-align:center;">
-      <div style="font-size: 1.5vw">{{addressLevel1}} {{addressLevel2}} {{addressLevel3}} {{addressPlace}}</div>
+  <v-container style="display:flex; justify-content:center">
+    <div style="width: 100vw; height: 100%; text-align:center;">
+      <div style="font-size: 4vw "><strong>{{addressLevel1}} {{addressLevel2}} {{addressLevel3}} {{addressPlace}}</strong></div>
       <v-row>
         <v-col style="width: 20%;">
           <div>
             <v-btn
               v-on:click="level1ItemsPrev(level1ItemsStart)"
-              style="font-size:2vw; width: 1vw; height: 2vw; "
+              style="font-size:2.5vw; width: 2vw; height: 3vw"
             >
               <i class="fas fa-angle-double-up"></i>
             </v-btn>
@@ -16,12 +16,12 @@
                 v-on:click="itemSelectLevel1(item.name, item.pk)"
                 outlined
                 color="indigo"
-                style="width: 100%; font-size: 3vh"
+                style="width: 100%; font-size: 3.5vh; font-weight:bold"
               >{{item.name}}</v-btn>
             </v-list>
             <v-btn
               v-on:click="level1ItemsNext(level1ItemsStart)"
-              style="font-size:2vw; width: 1vw; height: 2vw; "
+              style="font-size:2.5vw; width: 2vw; height: 3vw"
             >
               <i class="fas fa-angle-double-down"></i>
             </v-btn>
@@ -31,7 +31,7 @@
           <div>
             <v-btn
               v-on:click="level2ItemsPrev(level2ItemsStart)"
-              style="font-size:2vw; width: 1vw; height: 2vw; "
+              style="font-size:2.5vw; width: 2vw; height: 3vw"
             >
               <i class="fas fa-angle-double-up"></i>
             </v-btn>
@@ -40,12 +40,12 @@
                 v-on:click="itemSelectLevel2(item.name, item.pk)"
                 outlined
                 color="indigo"
-                style="width: 100%; font-size: 3vh;"
+                style="width: 100%; font-size: 3.5vh; font-weight:bold"
               >{{item.name}}</v-btn>
             </v-list>
             <v-btn
               v-on:click="level2ItemsNext(level2ItemsStart)"
-              style="font-size:2vw; width: 1vw; height: 2vw; "
+              style="font-size:2.5vw; width: 2vw; height: 3vw"
             >
               <i class="fas fa-angle-double-down"></i>
             </v-btn>
@@ -55,7 +55,7 @@
           <div>
             <v-btn
               v-on:click="level3ItemsPrev(level3ItemsStart)"
-              style="font-size:2vw; width: 1vw; height: 2vw; "
+              style="font-size:2.5vw; width: 2vw; height: 3vw"
             >
               <i class="fas fa-angle-double-up"></i>
             </v-btn>
@@ -64,12 +64,12 @@
                 v-on:click="itemSelectLevel3(item.name, item.pk)"
                 outlined
                 color="indigo"
-                style="width: 100%; font-size: 3vh"
+                style="width: 100%; font-size: 3.5vh; font-weight:bold"
               >{{item.name}}</v-btn>
             </v-list>
             <v-btn
               v-on:click="level3ItemsNext(level3ItemsStart)"
-              style="font-size:2vw; width: 1vw; height: 2vw; "
+              style="font-size:2.5vw; width: 2vw; height: 3vw"
             >
               <i class="fas fa-angle-double-down"></i>
             </v-btn>
@@ -79,7 +79,7 @@
           <div>
             <v-btn
               v-on:click="placeItemsPrev(placeItemsStart)"
-              style="font-size:2vw; width: 1vw; height: 2vw; "
+              style="font-size:2.5vw; width: 2vw; height: 3vw"
             >
               <i class="fas fa-angle-double-up"></i>
             </v-btn>
@@ -88,12 +88,12 @@
                 v-on:click="itemSelectPalce(item.pk, item.name)"
                 outlined
                 color="indigo"
-                style="width: 100%; font-size: 3vh"
+                style="width: 100%; font-size: 3.5vh; font-weight:bold"
               >{{item.name}}</v-btn>
             </v-list>
             <v-btn
               v-on:click="placeItemsNext(placeItemsStart)"
-              style="font-size:2vw; width: 1vw; height: 2vw; "
+              style="font-size:2.5vw; width: 2vw; height: 3vw"
             >
               <i class="fas fa-angle-double-down"></i>
             </v-btn>
@@ -101,7 +101,7 @@
         </v-col>
       </v-row>
     </div>
-    <v-dialog v-model="dialog" fullscreen hide-overlay transition="scale-transition" >
+    <v-dialog v-model="dialog" fullscreen hide-overlay transition="scale-transition">
       <v-row no-gutters style="height: 100%;">
         <v-col cols="6">
           <v-card class="pa-2" outlined tile style="height: 100%; text-align: center;">
@@ -365,10 +365,10 @@ export default {
 .v-dialog--fullscreen {
   border-radius: 0;
   margin: 0;
-  height: 68vh;
+  height: 72vh;
   position: fixed;
   overflow-y: auto;
-  top: 22vh; 
+  top: 18vh; 
   left: 0;
 }
 </style>
