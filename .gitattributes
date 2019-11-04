@@ -1,3 +1,4 @@
 *.{zip,jar} filter=lfs diff=lfs merge=lfs -text
 “*epth filter=lfs diff=lfs merge=lfs -text
 “*.pth filter=lfs diff=lfs merge=lfs -text
+*.pth filter=lfs diff=lfs merge=lfs -text
