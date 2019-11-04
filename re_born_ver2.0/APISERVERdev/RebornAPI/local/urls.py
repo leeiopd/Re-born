@@ -10,14 +10,9 @@ urlpatterns = [
     path('placelist/<int:level3_pk>/', views.placeList, name="placeList"),
     path('placed/update/', views.placeUpdate, name="placeUpdate"),
     # path('new/', views.new, name="new"),
-<<<<<<< HEAD
-    # path('plustrash/', views.plusTrash, name="plusTrash"),
-    path('plustrash/<int:place_pk>/', views.plusTrash, name="plusTrash"),
-=======
 
     path('plustrash/<int:place_pk>/', views.plusTrash, name="plusTrash"),
     path('filechecks/', views.filechecks, name="fileChecks"),
     path('trashinfo/', views.trashinfo, name="trashInfo"),
 
->>>>>>> APISERVERdev
 ]

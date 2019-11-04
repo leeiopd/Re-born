@@ -20,18 +20,18 @@ class Level3Admin(admin.ModelAdmin):
 
 
 class PlaceAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'level3', 'trashCount', 'mix', 'paper', 'plastic', 'can']
+    list_display = ['id', 'name', 'level3',
+                    'trashCount', 'mix', 'paper', 'plastic', 'can']
 
-<<<<<<< HEAD
-=======
+
 class TrashInfoAdmin(admin.ModelAdmin):
     list_display = ['id', 'info', 'confused']
+
 
 class FilecheckAdmin(admin.ModelAdmin):
     list_display = ['id', 'count']
 
 
->>>>>>> APISERVERdev
 admin.site.register(Level1, Level1Admin)
 admin.site.register(Level2, Level2Admin)
 admin.site.register(Level3, Level3Admin)

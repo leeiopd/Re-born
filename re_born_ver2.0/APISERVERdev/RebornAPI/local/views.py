@@ -3,16 +3,17 @@ from .models import Level1, Level2, Level3, Place, Filecheck, TrashInfo
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from .serializers import PlaceSerializer
-<<<<<<< HEAD
-=======
 
 from .serializers import PlaceSerializer, TrashInfoSerializer
-import os, sys, glob, json
+import os
+import sys
+import glob
+import json
 from PIL import Image
 import datetime
 
 from django.db.models import Q
->>>>>>> APISERVERdev
+
 
 @api_view(['GET'])
 def lv1List(request):
@@ -38,6 +39,7 @@ def lv2List(request, level1_pk):
         result.append(tmp)
     return Response(data=result)
 
+
 @api_view(['GET'])
 def lv3List(request, level2_pk):
     level2 = Level2.objects.get(id=level2_pk)
@@ -48,12 +50,8 @@ def lv3List(request, level2_pk):
         tmp['pk'] = level3.pk
         tmp['name'] = level3.name
         result.append(tmp)
-<<<<<<< HEAD
-    print(result)
-    print('출력완료')
-=======
->>>>>>> APISERVERdev
     return Response(data=result)
+
 
 @api_view(['GET'])
 def placeList(request, level3_pk):
@@ -65,50 +63,38 @@ def placeList(request, level3_pk):
         tmp['pk'] = place.pk
         tmp['name'] = place.name
         result.append(tmp)
-<<<<<<< HEAD
-    print('출력완료')
-=======
->>>>>>> APISERVERdev
     return Response(data=result)
+
 
 @api_view(['POST'])
 def plusTrash(request, place_pk):
     place = Place.objects.get(id=place_pk)
-<<<<<<< HEAD
-    print(place, '선택완료!')
-    # print(request.POST)
-    trash = request.POST['trash_num']
-=======
 
     trash = request.POST['trash_num']
 
->>>>>>> APISERVERdev
-    if trash=='1':
+    if trash == '1':
         place.can += 1
-    elif trash=='2':
+    elif trash == '2':
         place.paper += 1
-    elif trash=='3':
+    elif trash == '3':
         place.plastic += 1
     else:
         place.mix += 1
     place.trashCount += 1
     place.save()
     serializer = PlaceSerializer(place)
-<<<<<<< HEAD
-    print(serializer.data)
+    return Response(data=serializer.data)
 
-    return Response(data=serializer.data)
-=======
-    return Response(data=serializer.data)
 
 @api_view(['GET'])
 def filechecks(request):
     checkpoint = Filecheck.objects.get(pk=1)
     return Response(data=checkpoint.count)
 
+
 @api_view(['GET', 'POST'])
 def trashinfo(request):
-    ## 쓰레기 정보를 저장하는 모델 TrashInfo 와 관련된 함수입니다.
+    # 쓰레기 정보를 저장하는 모델 TrashInfo 와 관련된 함수입니다.
 
     # POST 요청으로 오는 경우는 쓰레기 이미지 결과값을 저장할 때 사용됩니다.
 
@@ -122,30 +108,30 @@ def trashinfo(request):
     if request.method == 'POST':
         trash_num = request.POST.get('trash_num')
         confused = request.POST.get('confused')
-        
-        if trash_num=='1':
+
+        if trash_num == '1':
             TrashInfo.objects.create(info='can', confused=confused)
-        elif trash_num=='2':
+        elif trash_num == '2':
             TrashInfo.objects.create(info='paper', confused=confused)
-        elif trash_num=='3':
+        elif trash_num == '3':
             TrashInfo.objects.create(info='plastic', confused=confused)
         else:
             TrashInfo.objects.create(info='mix', confused=confused)
-            
-        
+
         return Response(data=[])
-    
+
     else:
-        ## save trash related information!!
+        # save trash related information!!
         # 1. save Trashinfo data > .json
         # 2. save next_num (using in .jpg name!)
         # 3. copy image (input > copy) and delete input image
         # 4. delete trashinfo data in model
-        
+
         # 1
-        
+
         # filter mixggggggggggggg
-        confused_dic = TrashInfo.objects.filter(Q(confused=True) | Q(info='mix'))
+        confused_dic = TrashInfo.objects.filter(
+            Q(confused=True) | Q(info='mix'))
         serializer = TrashInfoSerializer(confused_dic, many=True)
         with open(f'trashinfo_{datetime.datetime.now().strftime("%Y%m%d_%H_%M_%S")}.json', 'w', encoding="utf-8") as make_file:
             json.dump(serializer.data, make_file, indent="\t\t")
@@ -172,7 +158,8 @@ def trashinfo(request):
         #     image.delete()
 
         return Response(data=serializer.data)
-    
+
+
 @api_view(['POST'])
 def placeUpdate(request):
     place_pk = 1
@@ -180,6 +167,5 @@ def placeUpdate(request):
     # how to alert to vue..?? arduino > python camera > views > vue????
     place.isFullMix = request.POST['full']
     place.save()
-    
+
     return Response(data=[])
->>>>>>> APISERVERdev
