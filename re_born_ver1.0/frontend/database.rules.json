@@ -1,0 +1,13 @@
+{
+<<<<<<< HEAD
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null"
+=======
+  /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
+  "rules": {
+    ".read": false,
+    ".write": false
+>>>>>>> b1e024ae275a3e0617865e9aa0babef0cd26bc02
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "name": "reborn",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "core-js": "^2.6.5",
+    "firebase": "^6.5.0",
+    "fs": "0.0.1-security",
+    "ibm-watson": "^4.4.0",
+    "register-service-worker": "^1.6.2",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "sweetalert2": "^8.16.4",
+    "vue": "^2.6.10",
+    "vue-firebase-auth": "^0.1.0",
+    "vue-google-login": "^2.0.2",
+    "vue-google-oauth2": "^1.4.0",
+    "vue-router": "^3.1.2",
+    "vue-session": "^1.0.0",
+    "vue-sessionstorage": "^1.0.0",
+    "vuetify": "^1.5.18",
+    "vuex": "^3.0.1",
+    "watson-developer-cloud": "^4.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-plugin-eslint": "^3.11.0",
+    "@vue/cli-plugin-pwa": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "sass": "^1.17.4",
+    "sass-loader": "^7.1.0",
+    "vue-cli-plugin-vuetify": "^0.6.3",
+    "vue-template-compiler": "^2.6.10",
+    "vuetify-loader": "^1.2.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
